@@ -9,21 +9,37 @@
 /* Begin PBXBuildFile section */
 		B4A7A3A524CF59CB0016D31F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A7A3A424CF59CB0016D31F /* AppDelegate.swift */; };
 		B4A7A3A724CF59CB0016D31F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A7A3A624CF59CB0016D31F /* SceneDelegate.swift */; };
-		B4A7A3A924CF59CB0016D31F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A7A3A824CF59CB0016D31F /* ViewController.swift */; };
 		B4A7A3AC24CF59CB0016D31F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4A7A3AA24CF59CB0016D31F /* Main.storyboard */; };
 		B4A7A3AE24CF59CD0016D31F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4A7A3AD24CF59CD0016D31F /* Assets.xcassets */; };
 		B4A7A3B124CF59CD0016D31F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4A7A3AF24CF59CD0016D31F /* LaunchScreen.storyboard */; };
+		B4A7A3B924CF5C520016D31F /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A7A3B824CF5C520016D31F /* RecordViewController.swift */; };
+		B4A7A3BB24CF5D290016D31F /* Cateogories.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A7A3BA24CF5D290016D31F /* Cateogories.swift */; };
+		B4A7A3BD24CF60390016D31F /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A7A3BC24CF60390016D31F /* CategoryViewController.swift */; };
+		B4A7A3C024CF628C0016D31F /* Monologue.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B4A7A3BE24CF628C0016D31F /* Monologue.xcdatamodeld */; };
+		B4A7A3C224CF63450016D31F /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A7A3C124CF63450016D31F /* CoreDataStack.swift */; };
+		B4A7A3C424CF63B10016D31F /* Monologue+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A7A3C324CF63B10016D31F /* Monologue+Convenience.swift */; };
+		B4A7A3C824CF645E0016D31F /* MonologueController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A7A3C724CF645E0016D31F /* MonologueController.swift */; };
+		B4A7A3CC24CF69150016D31F /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A7A3CB24CF69150016D31F /* CategoryCollectionViewCell.swift */; };
+		B4A7A3CE24CF6CCF0016D31F /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A7A3CD24CF6CCF0016D31F /* Category.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B4A7A3A124CF59CB0016D31F /* monologue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = monologue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4A7A3A424CF59CB0016D31F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4A7A3A624CF59CB0016D31F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B4A7A3A824CF59CB0016D31F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B4A7A3AB24CF59CB0016D31F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B4A7A3AD24CF59CD0016D31F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4A7A3B024CF59CD0016D31F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B4A7A3B224CF59CD0016D31F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4A7A3B824CF5C520016D31F /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
+		B4A7A3BA24CF5D290016D31F /* Cateogories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cateogories.swift; sourceTree = "<group>"; };
+		B4A7A3BC24CF60390016D31F /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		B4A7A3BF24CF628C0016D31F /* Monologue.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Monologue.xcdatamodel; sourceTree = "<group>"; };
+		B4A7A3C124CF63450016D31F /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		B4A7A3C324CF63B10016D31F /* Monologue+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Monologue+Convenience.swift"; sourceTree = "<group>"; };
+		B4A7A3C724CF645E0016D31F /* MonologueController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonologueController.swift; sourceTree = "<group>"; };
+		B4A7A3CB24CF69150016D31F /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoryCollectionViewCell.swift; path = "monologue/View Controllers/CategoryCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		B4A7A3CD24CF6CCF0016D31F /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +72,55 @@
 		B4A7A3A324CF59CB0016D31F /* monologue */ = {
 			isa = PBXGroup;
 			children = (
-				B4A7A3A424CF59CB0016D31F /* AppDelegate.swift */,
-				B4A7A3A624CF59CB0016D31F /* SceneDelegate.swift */,
-				B4A7A3A824CF59CB0016D31F /* ViewController.swift */,
-				B4A7A3AA24CF59CB0016D31F /* Main.storyboard */,
+				B4A7A3CA24CF664A0016D31F /* Storyboards */,
+				B4A7A3C924CF65ED0016D31F /* Models */,
+				B4A7A3C624CF64160016D31F /* Data Models */,
+				B4A7A3C524CF64070016D31F /* View Controllers */,
 				B4A7A3AD24CF59CD0016D31F /* Assets.xcassets */,
-				B4A7A3AF24CF59CD0016D31F /* LaunchScreen.storyboard */,
 				B4A7A3B224CF59CD0016D31F /* Info.plist */,
 			);
 			path = monologue;
+			sourceTree = "<group>";
+		};
+		B4A7A3C524CF64070016D31F /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B4A7A3BC24CF60390016D31F /* CategoryViewController.swift */,
+				B4A7A3B824CF5C520016D31F /* RecordViewController.swift */,
+				B4A7A3A424CF59CB0016D31F /* AppDelegate.swift */,
+				B4A7A3A624CF59CB0016D31F /* SceneDelegate.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		B4A7A3C624CF64160016D31F /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				B4A7A3BE24CF628C0016D31F /* Monologue.xcdatamodeld */,
+				B4A7A3C124CF63450016D31F /* CoreDataStack.swift */,
+				B4A7A3C324CF63B10016D31F /* Monologue+Convenience.swift */,
+			);
+			path = "Data Models";
+			sourceTree = "<group>";
+		};
+		B4A7A3C924CF65ED0016D31F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B4A7A3BA24CF5D290016D31F /* Cateogories.swift */,
+				B4A7A3C724CF645E0016D31F /* MonologueController.swift */,
+				B4A7A3CD24CF6CCF0016D31F /* Category.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B4A7A3CA24CF664A0016D31F /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				B4A7A3AA24CF59CB0016D31F /* Main.storyboard */,
+				B4A7A3CB24CF69150016D31F /* CategoryCollectionViewCell.swift */,
+				B4A7A3AF24CF59CD0016D31F /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +194,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4A7A3A924CF59CB0016D31F /* ViewController.swift in Sources */,
+				B4A7A3C824CF645E0016D31F /* MonologueController.swift in Sources */,
+				B4A7A3C224CF63450016D31F /* CoreDataStack.swift in Sources */,
+				B4A7A3BD24CF60390016D31F /* CategoryViewController.swift in Sources */,
+				B4A7A3B924CF5C520016D31F /* RecordViewController.swift in Sources */,
+				B4A7A3C424CF63B10016D31F /* Monologue+Convenience.swift in Sources */,
+				B4A7A3BB24CF5D290016D31F /* Cateogories.swift in Sources */,
+				B4A7A3CC24CF69150016D31F /* CategoryCollectionViewCell.swift in Sources */,
 				B4A7A3A524CF59CB0016D31F /* AppDelegate.swift in Sources */,
 				B4A7A3A724CF59CB0016D31F /* SceneDelegate.swift in Sources */,
+				B4A7A3C024CF628C0016D31F /* Monologue.xcdatamodeld in Sources */,
+				B4A7A3CE24CF6CCF0016D31F /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +402,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B4A7A3BE24CF628C0016D31F /* Monologue.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B4A7A3BF24CF628C0016D31F /* Monologue.xcdatamodel */,
+			);
+			currentVersion = B4A7A3BF24CF628C0016D31F /* Monologue.xcdatamodel */;
+			path = Monologue.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B4A7A39924CF59CB0016D31F /* Project object */;
 }
