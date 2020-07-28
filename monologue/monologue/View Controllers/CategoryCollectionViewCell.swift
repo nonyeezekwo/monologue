@@ -11,20 +11,42 @@ import UIKit
 class CategoryCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var featuredImageBackground: UIImageView!
-    
-    
-    var category: Category!{
-        didSet{
-            self.updateUI()
+
+    var categoryImage: UIImageView!
+    var categoryLabel: UILabel!
+    var scriptCountLabel: UILabel!
+
+    var count = 0
+
+//    var monologues: [Monologue]? {
+//        didSet {
+//            updateUI()
+//        }
+//    }
+//
+    var category: Category! {
+        didSet {
+            updateUI()
         }
     }
     
     func updateUI() {
-        if let category = category{
+        
+        if let category = category {
             featuredImageBackground.image = category.featuredImage
+        } else {
+            featuredImageBackground.image = nil
         }
-    }
-    
-    
+//        guard let category = category else { return }
+//
+//        categoryImage.image = UIImage(named: category.rawValue.lowercased())
+//        categoryLabel.text = category.rawValue.capitalized
+//        scriptCountLabel.isHidden = true
+//    }
     
 }
+}
+
+
+
+

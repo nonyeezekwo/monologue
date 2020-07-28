@@ -11,8 +11,10 @@ import UIKit
 class CategoryViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    var categorys = Category.fetchCategories()
+    var categories = Category.fetchCategories()
+//    var categories = [Category]()
+    //var categories = [Category]()
+    var monologueController = MonologueController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,20 +36,22 @@ class CategoryViewController: UIViewController {
     */
 
 }
+
+#warning ("must complete")
 extension CategoryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        categorys.count
+        return categories.count
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as! CategoryCollectionViewCell
-        let category = categorys[indexPath.item]
-        
+        let category = categories[indexPath.item]
         cell.category = category
         return cell
     }
-    
 }
+
 extension CategoryViewController: UIScrollViewDelegate, UICollectionViewDelegate {
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let layout = self.collectionView?.collectionViewLayout as! UICollectionViewFlowLayout

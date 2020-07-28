@@ -46,6 +46,7 @@
                                         </collectionViewCellContentView>
                                         <connections>
                                             <outlet property="featuredImageBackground" destination="fST-0y-pmf" id="1A5-bm-ujR"/>
+                                            <segue destination="Cec-oD-pqd" kind="show" identifier="TableViewSegue" id="Eqd-qf-WE6"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -63,7 +64,7 @@
                     <navigationItem key="navigationItem" id="xnt-UB-1Im">
                         <barButtonItem key="rightBarButtonItem" image="mic" catalog="system" id="bgI-bF-0Ve">
                             <connections>
-                                <segue destination="KY5-cd-ga1" kind="show" id="xPq-9c-ELk"/>
+                                <segue destination="KY5-cd-ga1" kind="show" identifier="addMonologueSegue" id="xPq-9c-ELk"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -74,6 +75,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="115.84821428571428"/>
+        </scene>
+        <!--Monologue Table View Controller-->
+        <scene sceneID="ChN-3T-cY9">
+            <objects>
+                <tableViewController id="Cec-oD-pqd" customClass="MonologueTableViewController" customModule="monologue" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="KL8-my-h4s">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MemoCell" textLabel="TZ4-gq-iZo" detailTextLabel="6r5-S2-FY7" style="IBUITableViewCellStyleSubtitle" id="FBO-Fr-PcS" customClass="MemoTableViewCell" customModule="monologue" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FBO-Fr-PcS" id="7m3-V7-fGh">
+                                    <rect key="frame" x="0.0" y="0.0" width="383" height="55.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TZ4-gq-iZo">
+                                            <rect key="frame" x="20" y="10" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6r5-S2-FY7">
+                                            <rect key="frame" x="20" y="31.5" width="44" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="bXW-va-ztn" kind="show" identifier="DetailSegue" id="C9x-q1-idv"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Cec-oD-pqd" id="PCh-lf-bVY"/>
+                            <outlet property="delegate" destination="Cec-oD-pqd" id="awI-dt-zcM"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="gka-hP-Ziq">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="F8C-6u-Nb4">
+                            <connections>
+                                <segue destination="KY5-cd-ga1" kind="show" identifier="RecordSegue" id="t3y-2N-A3r"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g2d-L9-iks" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1862" y="437"/>
         </scene>
         <!--Record View Controller-->
         <scene sceneID="mSx-ZU-dyi">
@@ -86,20 +141,18 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dhC-8G-6F0">
                                 <rect key="frame" x="16" y="140" width="382" height="612"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FEG-mJ-m0e">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter title here:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FEG-mJ-m0e">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P9c-4u-e2S">
-                                        <rect key="frame" x="0.0" y="42" width="382" height="30"/>
-                                        <color key="backgroundColor" red="0.804565325" green="0.76042182719999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Choose a Category:">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose your category:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G17-m8-HJg">
+                                        <rect key="frame" x="0.0" y="42" width="382" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RhG-Ck-f1x">
-                                        <rect key="frame" x="0.0" y="80" width="382" height="532"/>
+                                        <rect key="frame" x="0.0" y="84" width="382" height="528"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -113,6 +166,10 @@
                                 <state key="normal" image="livephoto" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                 </state>
+                                <state key="selected" image="circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="recordButtonTapped:" destination="KY5-cd-ga1" eventType="touchUpInside" id="W59-tk-Iyp"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -129,12 +186,38 @@
                         <viewLayoutGuide key="safeArea" id="eqL-ek-qyY"/>
                     </view>
                     <navigationItem key="navigationItem" id="yE4-yc-fX6">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="1xR-cn-u4H"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="1xR-cn-u4H">
+                            <connections>
+                                <action selector="saveMonologue:" destination="KY5-cd-ga1" id="3B4-0c-4JC"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="chooseCategory" destination="G17-m8-HJg" id="qYo-uL-Bh8"/>
+                        <outlet property="recordButton" destination="F1s-ri-PJL" id="Woe-aL-Lgs"/>
+                        <outlet property="textField" destination="FEG-mJ-m0e" id="2F7-0N-gAM"/>
+                        <outlet property="textView" destination="RhG-Ck-f1x" id="Gej-vA-Zl9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cTm-fy-OUV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1789.8550724637682" y="117.85714285714285"/>
+            <point key="canvasLocation" x="1835" y="-315"/>
+        </scene>
+        <!--Details View Controller-->
+        <scene sceneID="urv-lt-bpF">
+            <objects>
+                <viewController id="bXW-va-ztn" customClass="DetailsViewController" customModule="monologue" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iBf-bK-RVI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="uuh-1g-7Cx"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="3m9-Jf-tG0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hcg-Ag-21K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2861" y="19"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tyC-Qs-qKW">
@@ -155,7 +238,11 @@
             <point key="canvasLocation" x="137.68115942028987" y="115.84821428571428"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="xPq-9c-ELk"/>
+    </inferredMetricsTieBreakers>
     <resources>
+        <image name="circle.fill" catalog="system" width="128" height="121"/>
         <image name="livephoto" catalog="system" width="128" height="121"/>
         <image name="memories" width="338" height="600"/>
         <image name="mic" catalog="system" width="108" height="128"/>
