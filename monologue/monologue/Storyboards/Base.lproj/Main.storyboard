@@ -45,7 +45,7 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
-                                            <segue destination="Cec-oD-pqd" kind="show" identifier="TableViewSegue" id="Eqd-qf-WE6"/>
+                                            <segue destination="Cec-oD-pqd" kind="show" identifier="TableViewSegue" id="x0d-Ps-Pju"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -73,7 +73,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="115.84821428571428"/>
+            <point key="canvasLocation" x="1032" y="116"/>
         </scene>
         <!--Monologue Table View Controller-->
         <scene sceneID="ChN-3T-cY9">
@@ -82,7 +82,9 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="KL8-my-h4s">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.60878013959999999" green="0.56036011900000005" blue="0.58722692499999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="separatorColor" red="0.60878013959999999" green="0.56036011900000005" blue="0.58722692499999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MemoCell" textLabel="TZ4-gq-iZo" detailTextLabel="6r5-S2-FY7" style="IBUITableViewCellStyleSubtitle" id="FBO-Fr-PcS" customClass="MemoTableViewCell" customModule="monologue" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
@@ -173,7 +175,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.60878013959999999" green="0.56036011900000005" blue="0.58722692499999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="eqL-ek-qyY" firstAttribute="trailing" secondItem="F1s-ri-PJL" secondAttribute="trailing" constant="194" id="3MS-IO-lLg"/>
                             <constraint firstItem="eqL-ek-qyY" firstAttribute="bottom" secondItem="dhC-8G-6F0" secondAttribute="bottom" constant="110" id="CEQ-4F-u2I"/>
@@ -236,7 +238,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.60878013959999999" green="0.56036011900000005" blue="0.58722692499999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ig9-6A-hOe" firstAttribute="leading" secondItem="uuh-1g-7Cx" secondAttribute="leading" constant="16" id="2V3-SG-kdn"/>
                             <constraint firstItem="ig9-6A-hOe" firstAttribute="top" secondItem="uuh-1g-7Cx" secondAttribute="top" id="3MG-NN-gSo"/>
@@ -273,7 +275,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="xPq-9c-ELk"/>
+        <segue reference="t3y-2N-A3r"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="circle.fill" catalog="system" width="128" height="121"/>

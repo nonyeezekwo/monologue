@@ -10,11 +10,12 @@ import UIKit
 
 class CategoryViewController: UIViewController {
     
-    
     @IBOutlet weak var collectionView: UICollectionView!
+    #warning("Need to figure this out cause I need to be able to fetch the category images")
 //    var categories = Category.fetchCategories()
     
-    var categories = MonologueCategory.allCases
+    var categories = Category.fetchCategories()
+//    var categories = Category.allCases
     
     //    var categories = [Category]()
     //var categories = [Category]()
@@ -43,6 +44,14 @@ class CategoryViewController: UIViewController {
                 destinationVC.monologueController = monologueController
                 
             }
+        } else if segue.identifier == Identifier.showMemos {
+            if let destinationVC = segue.destination as? MonologueTableViewController,
+                let indexPath = collectionView.indexPathsForSelectedItems?.first {
+                destinationVC.category = Category.fetchCategories()[indexPath.row]
+                destinationVC.monologueController = monologueController
+                destinationVC.dateFormatter = dateFormatter
+                //                destinationVC.delegate = self
+            }
         }
     }
 }
@@ -61,7 +70,7 @@ extension CategoryViewController: UICollectionViewDataSource {
         
         let category = categories[indexPath.item]
         let monologues = monologueController.monologues
-        cell.category = category
+        cell.category = category.monologueCategory
         cell.monologues = monologues
         return cell
     }

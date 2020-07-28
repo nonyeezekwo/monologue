@@ -10,15 +10,14 @@ import UIKit
 
 class CategoryCollectionViewCell: UICollectionViewCell {
     
-//    @IBOutlet weak var featuredImageBackground: UIImageView!
+    @IBOutlet weak var featuredImageBackground: UIImageView!
     
     var categoryImage: UIImageView!
     var categoryLabel: UILabel!
-    var scriptCountLabel: UILabel!
     
     var count = 0
     
-    var monologues: [Monologue]? {
+    var monologues: [Monologue]! {
         didSet {
             updateUI()
         }
@@ -57,30 +56,30 @@ class CategoryCollectionViewCell: UICollectionViewCell {
 //        #warning("Not sure whats happening here but keeps crashing")
 //        categoryImage.image = UIImage(named: category!.rawValue)
 //        categoryLabel.text = category?.rawValue.capitalized
-//        scriptCountLabel.isHidden = true
 //    }
 //}
 
     func updateUI() {
         guard let categoryClass = categoryClass,
             let category = category else { return }
-//            featuredImageBackground.image = categoryClass.featuredImage -- lets try something new below
-//            featuredImageBackground.image = UIImage(named: category.rawValue)
-            categoryImage.image = UIImage(named: category.rawValue)
-            categoryLabel.text =  category.rawValue.capitalized
-            scriptCountLabel.isHidden = true
-//        } else {
-//            featuredImageBackground.image = nil
-//            categoryImage.image = nil
-//            categoryLabel.text = nil
+//                    featuredImageBackground.image = categoryClass.featuredImage // -- lets try something new below
+        //            featuredImageBackground.image = UIImage(named: category.rawValue)
+        categoryImage.image = UIImage(named: category.rawValue)
+        categoryLabel.text =  category.rawValue.capitalized
+        #warning("Fix me below")
+        categoryImage.layer.cornerRadius = 10.0
+        //        } else {
+        //            featuredImageBackground.image = nil
+        //            categoryImage.image = nil
+        //            categoryLabel.text = nil
         }
         // ive tried a million and one things here, wrapping, unwrapping, forcing, switching it up
         #warning("Not sure whats happening here but keeps crashing")
 
 //        categoryImage.image = UIImage(named: category?.rawValue)
 //        categoryLabel.text = category?.rawValue.capitalized
-//        scriptCountLabel.isHidden = true
 //        categoryImage.layer.cornerRadius = 10.0
 //        categoryImage.layer.masksToBounds = true
+    
     }
 

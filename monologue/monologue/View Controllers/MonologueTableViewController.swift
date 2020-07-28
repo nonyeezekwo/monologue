@@ -9,30 +9,63 @@
 import UIKit
 import CoreData
 
-class MonologueTableViewController: UITableViewController, MemoDelegate {
-    func updateCount(with count: Int) {
-        switch count {
-        case 0:
-            monologueCountLabel.text = "NO TRANSCRIPTS"
-        case 1:
-            monologueCountLabel.text = "1 TRANSCRIPT"
-        default:
-            monologueCountLabel.text = "\(count) TRANSCRIPTS"
+class MonologueTableViewController: UITableViewController {
+    
+    var monologueController: MonologueController?
+    var category: Category? {
+        didSet {
+            setUpFetchResultsController()
         }
     }
     
-    var monologueController: MonologueController?
-    var category: MonologueCategory?
+    
     var dateFormatter: DateFormatter?
     var monologueCountLabel: UILabel!
     
-    weak var delegate: MemoDelegate?
+//    weak var delegate: MemoDelegate?
+    var fetchedResultsController: NSFetchedResultsController<Monologue>?
     
-    lazy var fetchedResultsController: NSFetchedResultsController<Monologue> = {
+//    lazy var fetchedResultsController: NSFetchedResultsController<Monologue> = {
+//        let fetchRequest: NSFetchRequest<Monologue> = Monologue.fetchRequest()
+//        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "dateCreated", ascending: false)]
+//
+//        guard let category = category else {
+//            fatalError("Category was never passed to TableViewController")
+//        }
+//
+//        let predicate = NSPredicate(format: "category == %@", category.rawValue)
+//        fetchRequest.predicate = predicate
+//
+//        let context = CoreDataStack.shared.mainContext
+//        let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
+//                                             managedObjectContext: context,
+//                                             sectionNameKeyPath: nil,
+//                                             cacheName: nil)
+//        frc.delegate = self
+//
+//        do {
+//            try frc.performFetch()
+//        } catch {
+//            fatalError("Error performing fetch:\(error)")
+//        }
+//
+//        return frc
+//    }()
+    
+    // MARK: - View Lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+//        tableView.delegate = self
+//        tableView.dataSource = self
+    }
+    
+    func setUpFetchResultsController() {
         let fetchRequest: NSFetchRequest<Monologue> = Monologue.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "dateCreated", ascending: false)]
         
-        guard let category = category else {
+        guard let category = category?.monologueCategory else {
             fatalError("Category was never passed to TableViewController")
         }
         
@@ -52,21 +85,13 @@ class MonologueTableViewController: UITableViewController, MemoDelegate {
             fatalError("Error performing fetch:\(error)")
         }
         
-        return frc
-    }()
-    
-    // MARK: - View Lifecycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        tableView.delegate = self
-        tableView.dataSource = self
+        self.fetchedResultsController = frc
+        tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let monologues = fetchedResultsController.sections?[section].numberOfObjects ?? 0
-        delegate?.updateCount(with: monologues)
+        let monologues = fetchedResultsController?.sections?[section].numberOfObjects ?? 0
+//        delegate?.updateCount(with: monologues)
         return monologues
     }
     
@@ -75,17 +100,17 @@ class MonologueTableViewController: UITableViewController, MemoDelegate {
             return UITableViewCell()
         }
         
-        let monologue = fetchedResultsController.object(at: indexPath)
+        let monologue = fetchedResultsController?.object(at: indexPath)
         cell.monologue = monologue
         cell.dateFormatter = dateFormatter
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let memoDetailVC = storyboard?.instantiateViewController(identifier: Identifier.detailVC, creator: { coder in
-            let monologue = self.fetchedResultsController.object(at: indexPath)
+        guard let detailVC = storyboard?.instantiateViewController(identifier: Identifier.detailVC, creator: { coder in
             guard let monologueController = self.monologueController,
-                let dateFormatter = self.dateFormatter else {
+                let dateFormatter = self.dateFormatter,
+                let monologue = self.fetchedResultsController?.object(at: indexPath) else {
                     fatalError("Info is not passing through view controllers")
             }
             
@@ -95,27 +120,27 @@ class MonologueTableViewController: UITableViewController, MemoDelegate {
                                          dateFormatter: dateFormatter)}) else { return }
         
         tableView.deselectRow(at: indexPath, animated: true)
-        navigationController?.pushViewController(memoDetailVC, animated: false)
+        navigationController?.pushViewController(detailVC, animated: false)
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let monologue = fetchedResultsController.object(at: indexPath)
+            guard let monologue = fetchedResultsController?.object(at: indexPath) else { return }
             monologueController?.deleteMonologue(monologue)
-            guard let count = fetchedResultsController.fetchedObjects?.count else { return }
-            delegate?.updateCount(with: count)
+            guard let count = fetchedResultsController?.fetchedObjects?.count else { return }
+//            delegate?.updateCount(with: count)
             tableView.reloadData()
         }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Identifier.showMemos {
-            if let destinationVC = segue.destination as? MonologueTableViewController {
-                destinationVC.category = category
-                destinationVC.monologueController = monologueController
-                destinationVC.dateFormatter = dateFormatter
-                destinationVC.delegate = self
-            }
-        }
+//        if segue.identifier == Identifier.showMemos {
+//            if let destinationVC = segue.destination as? MonologueTableViewController {
+//                destinationVC.category = category
+//                destinationVC.monologueController = monologueController
+//                destinationVC.dateFormatter = dateFormatter
+////                destinationVC.delegate = self
+//            }
+//        }
     }
 }
 

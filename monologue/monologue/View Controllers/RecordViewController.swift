@@ -192,19 +192,19 @@ class RecordViewController: UIViewController, UITextViewDelegate, UITextFieldDel
             let speechToText = textView.text else { return }
         
         if title.isEmpty && category.isEmpty {
-            let alert = UIAlertController(title: "Missing Title and Category", message: nil, preferredStyle: .alert)
+            let alert = UIAlertController(title: "Missing Title & Category", message: "Add a title and category so this can be saved.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
         } else if title.isEmpty {
-            let alert = UIAlertController(title: "Missing Title", message: nil, preferredStyle: .alert)
+            let alert = UIAlertController(title: "Missing Title", message: "Please add a title to save this!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
         } else if category.isEmpty {
-            let alert = UIAlertController(title: "Missing Category", message: nil, preferredStyle: .alert)
+            let alert = UIAlertController(title: "Missing Category", message: "Use the drop down menu to easily categorize!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
-        } else if speechToText.isEmpty || speechToText == "(Go ahead, I'm listening)" {
-            let alert = UIAlertController(title: "Missing Monologue", message: nil, preferredStyle: .alert)
+        } else if speechToText.isEmpty || speechToText == "Just waiting on you...." {
+            let alert = UIAlertController(title: "Missing Monologue", message: "Speak on it, I'm ready for you", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alert, animated: true) {
                 if self.textView.text.isEmpty {
