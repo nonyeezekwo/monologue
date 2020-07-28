@@ -10,11 +10,11 @@ import Foundation
 import CoreData
 
 class CoreDataStack {
-
+    
     private init() {}
-
+    
     static let shared = CoreDataStack()
-
+    
     lazy var container: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Monologue")
         container.loadPersistentStores(completionHandler: { (_, error) in
@@ -22,15 +22,15 @@ class CoreDataStack {
                 fatalError("Error loading persistent stores: \(error)")
             }
         })
-
+        
         container.viewContext.automaticallyMergesChangesFromParent = true
         return container
     }()
-
+    
     var mainContext: NSManagedObjectContext {
         return container.viewContext
     }
-
+    
     func save(context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         context.performAndWait {
             do {

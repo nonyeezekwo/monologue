@@ -20,17 +20,19 @@ enum MonologueCategory: String, CaseIterable {
 class Category {
     
     var monologueCategory: MonologueCategory?
-    
     var featuredImage: UIImage
     
     init(featuredImage: UIImage) {
         self.featuredImage = featuredImage
+        //        self.monologueCategory = monologueCategory
     }
-    
+    #warning("IS THIS WHY IT KEEPS CRASHING ON LINE 48 OF THE COLLECTIONVIEWCELL?")
     static func fetchCategories() -> [Category] {
         return [
             Category(featuredImage: UIImage(named: "memories")!),
-            Category(featuredImage: UIImage(named: "thoughts")!)
+            Category(featuredImage: UIImage(named: "thoughts")!),
+            Category(featuredImage: UIImage(named: "work")!),
+            Category(featuredImage: UIImage(named: "tasks")!)
             // TODO:  ADD OTHER CATEGORIES AND PICTURES
         ]
     }

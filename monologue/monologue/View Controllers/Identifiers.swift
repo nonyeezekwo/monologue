@@ -10,9 +10,8 @@ import Foundation
 
 struct Identifier {
     static let addRecording      = "addMonologueSegue"
-    static let showScripts    = "ShowScriptsSegue"
     static let showMemos        = "TableViewSegue"
-    static let scriptCell     = "ScriptCell"
-    static let scriptsTVC     = "ScriptsViewController"
+    static let memoCell     = "MemoCell"
+    static let detailsegue     = "DetailSegue"
     static let detailVC = "DetailViewController"
 }

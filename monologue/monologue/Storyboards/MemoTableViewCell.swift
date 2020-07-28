@@ -11,7 +11,6 @@ import UIKit
 class MemoTableViewCell: UITableViewCell {
     
     @IBOutlet weak var featuredImageBackground: UIImageView!
-    
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
     
@@ -20,32 +19,22 @@ class MemoTableViewCell: UITableViewCell {
             self.updateUI()
         }
     }
+    
     var dateFormatter: DateFormatter? {
         didSet {
             updateUI()
         }
     }
-
+    
     func updateUI() {
         guard
-              let monologue = monologue,
-              let date = monologue.dateCreated,
-              let dateFormatter = dateFormatter else { return }
+            let monologue = monologue,
+            let date = monologue.dateCreated,
+            let dateFormatter = dateFormatter else { return }
         
         let dateString = dateFormatter.string(from: date)
         titleLabel.text = monologue.monologueTitle
         dateLabel.text = dateString.uppercased()
     }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+    
 }

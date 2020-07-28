@@ -9,11 +9,22 @@
 import UIKit
 import CoreData
 
-class MonologueTableViewController: UITableViewController {
+class MonologueTableViewController: UITableViewController, MemoDelegate {
+    func updateCount(with count: Int) {
+        switch count {
+        case 0:
+            monologueCountLabel.text = "NO TRANSCRIPTS"
+        case 1:
+            monologueCountLabel.text = "1 TRANSCRIPT"
+        default:
+            monologueCountLabel.text = "\(count) TRANSCRIPTS"
+        }
+    }
     
     var monologueController: MonologueController?
     var category: MonologueCategory?
     var dateFormatter: DateFormatter?
+    var monologueCountLabel: UILabel!
     
     weak var delegate: MemoDelegate?
     
@@ -52,15 +63,15 @@ class MonologueTableViewController: UITableViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let monologue = fetchedResultsController.sections?[section].numberOfObjects ?? 0
-        delegate?.updateCount(with: monologue)
-        return monologue
+        let monologues = fetchedResultsController.sections?[section].numberOfObjects ?? 0
+        delegate?.updateCount(with: monologues)
+        return monologues
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.scriptCell, for: indexPath) as? MemoTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.memoCell, for: indexPath) as? MemoTableViewCell else {
             return UITableViewCell()
         }
         
@@ -71,21 +82,20 @@ class MonologueTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let scriptDetailVC = storyboard?.instantiateViewController(identifier: Identifier.detailVC, creator: { coder in
+        guard let memoDetailVC = storyboard?.instantiateViewController(identifier: Identifier.detailVC, creator: { coder in
             let monologue = self.fetchedResultsController.object(at: indexPath)
             guard let monologueController = self.monologueController,
                 let dateFormatter = self.dateFormatter else {
-                    fatalError("Information was never passed through view controllers")
+                    fatalError("Info is not passing through view controllers")
             }
             
             return DetailsViewController(coder: coder,
-                                             monologue: monologue,
-                                             monologueController: monologueController,
-                                             dateFormatter: dateFormatter)}) else { return }
+                                         monologue: monologue,
+                                         monologueController: monologueController,
+                                         dateFormatter: dateFormatter)}) else { return }
         
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        navigationController?.pushViewController(scriptDetailVC, animated: false)
+        navigationController?.pushViewController(memoDetailVC, animated: false)
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -97,7 +107,16 @@ class MonologueTableViewController: UITableViewController {
             tableView.reloadData()
         }
     }
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Identifier.showMemos {
+            if let destinationVC = segue.destination as? MonologueTableViewController {
+                destinationVC.category = category
+                destinationVC.monologueController = monologueController
+                destinationVC.dateFormatter = dateFormatter
+                destinationVC.delegate = self
+            }
+        }
+    }
 }
 
 extension MonologueTableViewController: NSFetchedResultsControllerDelegate {

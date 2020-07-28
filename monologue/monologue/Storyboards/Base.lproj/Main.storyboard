@@ -18,7 +18,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rf3-EZ-Lmy">
                                 <rect key="frame" x="0.0" y="99" width="414" height="699"/>
-                                <color key="backgroundColor" red="0.60878013959999999" green="0.52726763830000001" blue="0.43658060609999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.60878013959999999" green="0.56036011897145011" blue="0.58722692497487405" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="30" minimumInteritemSpacing="20" id="fae-XS-RiU">
                                     <size key="itemSize" width="275" height="600"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -45,14 +45,13 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
-                                            <outlet property="featuredImageBackground" destination="fST-0y-pmf" id="1A5-bm-ujR"/>
                                             <segue destination="Cec-oD-pqd" kind="show" identifier="TableViewSegue" id="Eqd-qf-WE6"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="0.60878013959390864" green="0.52726763832927626" blue="0.43658060605161375" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.60878013959999999" green="0.56036011900000005" blue="0.58722692499999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rf3-EZ-Lmy" secondAttribute="bottom" constant="64" id="2YG-jd-zSh"/>
                             <constraint firstItem="rf3-EZ-Lmy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="903-c0-XZj"/>
@@ -109,6 +108,8 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="dateLabel" destination="6r5-S2-FY7" id="Z3p-Rn-ogk"/>
+                                    <outlet property="titleLabel" destination="TZ4-gq-iZo" id="bbE-Ke-HzJ"/>
                                     <segue destination="bXW-va-ztn" kind="show" identifier="DetailSegue" id="C9x-q1-idv"/>
                                 </connections>
                             </tableViewCell>
@@ -210,14 +211,47 @@
                     <view key="view" contentMode="scaleToFill" id="iBf-bK-RVI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ig9-6A-hOe">
+                                <rect key="frame" x="16" y="140" width="382" height="630"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Edit Title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="inq-GR-td8">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Change Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jcb-1G-faP">
+                                        <rect key="frame" x="0.0" y="42" width="382" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uCe-k9-lHW">
+                                        <rect key="frame" x="0.0" y="84" width="382" height="546"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ig9-6A-hOe" firstAttribute="leading" secondItem="uuh-1g-7Cx" secondAttribute="leading" constant="16" id="2V3-SG-kdn"/>
+                            <constraint firstItem="ig9-6A-hOe" firstAttribute="top" secondItem="uuh-1g-7Cx" secondAttribute="top" id="3MG-NN-gSo"/>
+                            <constraint firstItem="uuh-1g-7Cx" firstAttribute="bottom" secondItem="ig9-6A-hOe" secondAttribute="bottom" constant="92" id="ER7-EW-z23"/>
+                            <constraint firstItem="uuh-1g-7Cx" firstAttribute="trailing" secondItem="ig9-6A-hOe" secondAttribute="trailing" constant="16" id="UJh-lV-lhC"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="uuh-1g-7Cx"/>
                     </view>
-                    <navigationItem key="navigationItem" id="3m9-Jf-tG0"/>
+                    <navigationItem key="navigationItem" id="3m9-Jf-tG0">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="jlM-wa-6f1"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hcg-Ag-21K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2861" y="19"/>
+            <point key="canvasLocation" x="2860.8695652173915" y="18.75"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tyC-Qs-qKW">

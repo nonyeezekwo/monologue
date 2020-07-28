@@ -10,43 +10,77 @@ import UIKit
 
 class CategoryCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var featuredImageBackground: UIImageView!
-
+//    @IBOutlet weak var featuredImageBackground: UIImageView!
+    
     var categoryImage: UIImageView!
     var categoryLabel: UILabel!
     var scriptCountLabel: UILabel!
-
+    
     var count = 0
-
-//    var monologues: [Monologue]? {
-//        didSet {
-//            updateUI()
-//        }
-//    }
-//
-    var category: Category! {
+    
+    var monologues: [Monologue]? {
+        didSet {
+            updateUI()
+        }
+    }
+    var categoryClass: Category! {
         didSet {
             updateUI()
         }
     }
     
-    func updateUI() {
-        
-        if let category = category {
-            featuredImageBackground.image = category.featuredImage
-        } else {
-            featuredImageBackground.image = nil
+    var category: MonologueCategory? {
+        didSet {
+            updateUI()
         }
-//        guard let category = category else { return }
-//
-//        categoryImage.image = UIImage(named: category.rawValue.lowercased())
-//        categoryLabel.text = category.rawValue.capitalized
+    }
+    //    var category: Category! {
+    //         didSet {
+    //             updateUI()
+    //         }
+    //     }
+//    #warning("This doesn't crash but suddendly my images are gone")
+//    func updateUI() {
+//        if let categoryClass = categoryClass {
+//            featuredImageBackground.image = categoryClass.featuredImage
+//        } else {
+//            featuredImageBackground.image = nil
+//        }
+//    }
+//}
+//    func updateUI() {
+//        if let categoryClass = categoryClass {
+//            featuredImageBackground.image = categoryClass.featuredImage } else {
+//            featuredImageBackground.image = nil
+//        }
+//        // ive tried a million and one things here, wrapping, unwrapping, forcing, switching it up
+//        #warning("Not sure whats happening here but keeps crashing")
+//        categoryImage.image = UIImage(named: category!.rawValue)
+//        categoryLabel.text = category?.rawValue.capitalized
 //        scriptCountLabel.isHidden = true
 //    }
-    
-}
-}
+//}
 
+    func updateUI() {
+        guard let categoryClass = categoryClass,
+            let category = category else { return }
+//            featuredImageBackground.image = categoryClass.featuredImage -- lets try something new below
+//            featuredImageBackground.image = UIImage(named: category.rawValue)
+            categoryImage.image = UIImage(named: category.rawValue)
+            categoryLabel.text =  category.rawValue.capitalized
+            scriptCountLabel.isHidden = true
+//        } else {
+//            featuredImageBackground.image = nil
+//            categoryImage.image = nil
+//            categoryLabel.text = nil
+        }
+        // ive tried a million and one things here, wrapping, unwrapping, forcing, switching it up
+        #warning("Not sure whats happening here but keeps crashing")
 
-
+//        categoryImage.image = UIImage(named: category?.rawValue)
+//        categoryLabel.text = category?.rawValue.capitalized
+//        scriptCountLabel.isHidden = true
+//        categoryImage.layer.cornerRadius = 10.0
+//        categoryImage.layer.masksToBounds = true
+    }
 

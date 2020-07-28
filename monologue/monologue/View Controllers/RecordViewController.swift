@@ -13,65 +13,67 @@ class RecordViewController: UIViewController, UITextViewDelegate, UITextFieldDel
     
     // MARK: - OUTLETS
     @IBOutlet var chooseCategory: UITextField!
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet var textField: UITextField!
     @IBOutlet var recordButton: UIButton!
     @IBOutlet var textView: UITextView!
     
-//    let transparentView = UIView()
+    //    let transparentView = UIView()
     let tableView = UITableView()
     var monologueURL: URL?
     var selectedButton = UIButton()
-//    var monologueCategory: MonologueCategory?
+    //    var monologueCategory: MonologueCategory?
     var monogolueCategory = [MonologueCategory]()
     var monologueController: MonologueController?
     var categories = MonologueCategory.allCases
-//    var monologueCategory: MonologueCategory?
-//    var dataSource = [MonologueCategory]()
+    //    var monologueCategory: MonologueCategory?
+    //    var dataSource = [MonologueCategory]()
     
     private let audioEngine = AVAudioEngine()
     private let speechRecognizer = SFSpeechRecognizer()
     private var request: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
+//        tableView.delegate = self
+//        tableView.dataSource = self
         textView.delegate = self
         textField.delegate = self
+        chooseCategory.delegate = self
         
         updateViews()
     }
     
-//    func addTransparentView(frames: CGRect) {
-//        let window = UIApplication.shared.keyWindow
-//        transparentView.frame = window?.frame ?? self.view.frame
-//        self.view.addSubview(transparentView)
-//
-//        tableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height, width: frames.width, height: 0)
-//        self.view.addSubview(tableView)
-//        tableView.layer.cornerRadius = 5
-//
-//        transparentView.backgroundColor = UIColor.black.withAlphaComponent(0.9)
-//
-//        let tappedButton = UITapGestureRecognizer(target: self, action: #selector(removeTransparentView))
-//        transparentView.addGestureRecognizer(tappedButton)
-//        transparentView.alpha = 0
-//        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseOut, animations: { self.transparentView.alpha = 0.5
-//            self.tableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height, width: frames.width + 5, height: 200)
-//
-//        }, completion: nil)
-//    }
-//
-//    @objc func removeTransparentView() {
-//        let frames = selectedButton.frame
-//        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseOut, animations: { self.transparentView.alpha = 0
-//                self.tableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height, width: frames.width, height: 0)
-//        }, completion: nil)
-//    }
-
+    //    func addTransparentView(frames: CGRect) {
+    //        let window = UIApplication.shared.keyWindow
+    //        transparentView.frame = window?.frame ?? self.view.frame
+    //        self.view.addSubview(transparentView)
+    //
+    //        tableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height, width: frames.width, height: 0)
+    //        self.view.addSubview(tableView)
+    //        tableView.layer.cornerRadius = 5
+    //
+    //        transparentView.backgroundColor = UIColor.black.withAlphaComponent(0.9)
+    //
+    //        let tappedButton = UITapGestureRecognizer(target: self, action: #selector(removeTransparentView))
+    //        transparentView.addGestureRecognizer(tappedButton)
+    //        transparentView.alpha = 0
+    //        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseOut, animations: { self.transparentView.alpha = 0.5
+    //            self.tableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height, width: frames.width + 5, height: 200)
+    //
+    //        }, completion: nil)
+    //    }
+    //
+    //    @objc func removeTransparentView() {
+    //        let frames = selectedButton.frame
+    //        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseOut, animations: { self.transparentView.alpha = 0
+    //                self.tableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height, width: frames.width, height: 0)
+    //        }, completion: nil)
+    //    }
+    
     
     // MARK: - ACTIONS
+    // Save Button Tapped
     @IBAction func saveMonologue(_ sender: Any) {
         guard
             let title = textField.text, !title.isEmpty,
@@ -85,11 +87,11 @@ class RecordViewController: UIViewController, UITextViewDelegate, UITextFieldDel
         monologueController?.createMonologue(title: title, text: text, category: category, monologueURL: monologueURL)
         navigationController?.popViewController(animated: true)
     }
-
+    
     // Record Button Tapped
     @IBAction func recordButtonTapped(_ sender: Any) {
         recordButton.isSelected.toggle()
-
+        
         if recordButton.isSelected {
             requestAuthorization()
             textView.text = ""
@@ -97,7 +99,7 @@ class RecordViewController: UIViewController, UITextViewDelegate, UITextFieldDel
         } else {
             stopSpeechRecognition()
             textView.isEditable = true
-
+            
             if textView.text.isEmpty {
                 textView.text = "(Speak up 👀)"
                 textView.isEditable = false
@@ -106,16 +108,14 @@ class RecordViewController: UIViewController, UITextViewDelegate, UITextFieldDel
         }
     }
     
-    // Save Button Tapped
     
-    
-//@IBAction func tappedCategory(_ sender: Any) {
-////    monogolueCategory = [monogolueCategory].self
-////    selectedButton = chooseCategory
-//    addTransparentView(frames: chooseCategory.frame)
-//
-//    }
-//
+    //@IBAction func tappedCategory(_ sender: Any) {
+    ////    monogolueCategory = [monogolueCategory].self
+    ////    selectedButton = chooseCategory
+    //    addTransparentView(frames: chooseCategory.frame)
+    //
+    //    }
+    //
     private func requestAuthorization() {
         SFSpeechRecognizer.requestAuthorization { [weak self] status in
             guard let self = self else { return }
@@ -184,7 +184,7 @@ class RecordViewController: UIViewController, UITextViewDelegate, UITextFieldDel
         textView.textColor = .label
         textView.text = ""
     }
-
+    
     private func missingPropertiesAlert() {
         guard
             let title = textField.text,
@@ -240,7 +240,7 @@ extension RecordViewController: SFSpeechRecognizerDelegate {
 // MARK: - EXTENSION
 extension RecordViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RecordCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
         cell.textLabel?.text = monogolueCategory[indexPath.row].rawValue
         return cell
     }

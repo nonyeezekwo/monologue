@@ -10,32 +10,43 @@ import UIKit
 
 class CategoryViewController: UIViewController {
     
+    
     @IBOutlet weak var collectionView: UICollectionView!
-    var categories = Category.fetchCategories()
-//    var categories = [Category]()
+//    var categories = Category.fetchCategories()
+    
+    var categories = MonologueCategory.allCases
+    
+    //    var categories = [Category]()
     //var categories = [Category]()
     var monologueController = MonologueController()
+    
+//    let category: MonologueCategory
+    
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "d MMMM yyyy"
+        return formatter
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
-
+        
         // Do any additional setup after loading the view.
     }
     
-
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == Identifier.addRecording {
+            if let destinationVC = segue.destination as? RecordViewController {
+                destinationVC.monologueController = monologueController
+                
+            }
+        }
     }
-    */
-
 }
+
 
 #warning ("must complete")
 extension CategoryViewController: UICollectionViewDataSource {
@@ -45,9 +56,13 @@ extension CategoryViewController: UICollectionViewDataSource {
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as! CategoryCollectionViewCell
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as? CategoryCollectionViewCell else { return UICollectionViewCell() }
+        
         let category = categories[indexPath.item]
+        let monologues = monologueController.monologues
         cell.category = category
+        cell.monologues = monologues
         return cell
     }
 }
