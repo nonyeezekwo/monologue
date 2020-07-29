@@ -35,6 +35,22 @@ class CategoryCollectionViewCell: UICollectionViewCell {
             updateUI()
         }
     }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setUpSubviews()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setUpSubviews()
+    }
+    
+    private func setUpSubviews() {
+        layer.cornerRadius = 10
+        clipsToBounds = true
+    }
+    
     //    var category: Category! {
     //         didSet {
     //             updateUI()
@@ -68,8 +84,6 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         //            featuredImageBackground.image = UIImage(named: category.rawValue)
         categoryImage.image = UIImage(named: category.rawValue)
         categoryLabel.text =  category.rawValue.capitalized
-        #warning("Fix me below")
-        categoryImage.layer.cornerRadius = 10.0
         //        } else {
         //            featuredImageBackground.image = nil
         //            categoryImage.image = nil
