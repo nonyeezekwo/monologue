@@ -12,8 +12,6 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
-//    @IBOutlet weak var featuredImageBackground: UIImageView!
-    
     
     var categoryImage: UIImageView!
     var categoryLabel: UILabel!
@@ -21,11 +19,6 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     var count = 0
     
     var monologues: [Monologue] = [] {
-        didSet {
-            updateUI()
-        }
-    }
-    var categoryClass: Category! {
         didSet {
             updateUI()
         }
@@ -41,7 +34,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         setUpSubviews()
     }
-
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setUpSubviews()
@@ -52,60 +45,19 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         clipsToBounds = true
         categoryImage = UIImageView()
         categoryImage.contentMode = .scaleAspectFill
-               categoryImage.translatesAutoresizingMaskIntoConstraints = false
-               addSubview(categoryImage)
-
-               NSLayoutConstraint.activate([
-                   categoryImage.topAnchor.constraint(equalTo: topAnchor),
-                   categoryImage.leadingAnchor.constraint(equalTo: leadingAnchor),
-                   categoryImage.bottomAnchor.constraint(equalTo: bottomAnchor),
-                   categoryImage.widthAnchor.constraint(equalTo: widthAnchor)
-               ])
+        categoryImage.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(categoryImage)
+        
+        NSLayoutConstraint.activate([
+            categoryImage.topAnchor.constraint(equalTo: topAnchor),
+            categoryImage.leadingAnchor.constraint(equalTo: leadingAnchor),
+            categoryImage.bottomAnchor.constraint(equalTo: bottomAnchor),
+            categoryImage.widthAnchor.constraint(equalTo: widthAnchor)
+        ])
     }
     
-    //    var category: Category! {
-    //         didSet {
-    //             updateUI()
-    //         }
-    //     }
-//    #warning("This doesn't crash but suddendly my images are gone")
-//    func updateUI() {
-//        if let categoryClass = categoryClass {
-//            featuredImageBackground.image = categoryClass.featuredImage
-//        } else {
-//            featuredImageBackground.image = nil
-//        }
-//    }
-//}
-//    func updateUI() {
-//        if let categoryClass = categoryClass {
-//            featuredImageBackground.image = categoryClass.featuredImage } else {
-//            featuredImageBackground.image = nil
-//        }
-//        // ive tried a million and one things here, wrapping, unwrapping, forcing, switching it up
-//        #warning("Not sure whats happening here but keeps crashing")
-//        categoryImage.image = UIImage(named: category!.rawValue)
-//        categoryLabel.text = category?.rawValue.capitalized
-//    }
-//}
-
     func updateUI() {
-//        guard let categoryClass = categoryClass,
-            guard let category = category else { return }
-//        featuredImageBackground.image = categoryClass.featuredImage // -- lets try something new below
+        guard let category = category else { return }
         categoryImage.image = UIImage(named: category.rawValue.lowercased())
-        //        } else {
-        //            featuredImageBackground.image = nil
-        //            categoryImage.image = nil
-        //            categoryLabel.text = nil
-        }
-        // ive tried a million and one things here, wrapping, unwrapping, forcing, switching it up
-        #warning("Not sure whats happening here but keeps crashing")
-
-//        categoryImage.image = UIImage(named: category?.rawValue)
-//        categoryLabel.text = category?.rawValue.capitalized
-//        categoryImage.layer.cornerRadius = 10.0
-//        categoryImage.layer.masksToBounds = true
-    
     }
-
+}
