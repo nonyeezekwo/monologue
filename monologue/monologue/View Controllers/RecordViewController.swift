@@ -35,8 +35,8 @@ class RecordViewController: UIViewController, UITextViewDelegate, UITextFieldDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        tableView.delegate = self
-//        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.dataSource = self
         textView.delegate = self
         textField.delegate = self
         chooseCategory.delegate = self
@@ -101,7 +101,7 @@ class RecordViewController: UIViewController, UITextViewDelegate, UITextFieldDel
             textView.isEditable = true
             
             if textView.text.isEmpty {
-                textView.text = "(Speak up 👀)"
+                textView.text = "Please speak so I can get to work"
                 textView.isEditable = false
                 textView.isSelectable = false
             }
@@ -177,11 +177,8 @@ class RecordViewController: UIViewController, UITextViewDelegate, UITextFieldDel
         
         return file
     }
+    
     private func updateViews() {
-        recordButton.layer.cornerRadius = 45
-        textView.textColor = .label
-        chooseCategory.textColor = .label
-        textView.textColor = .label
         textView.text = ""
     }
     
@@ -240,7 +237,7 @@ extension RecordViewController: SFSpeechRecognizerDelegate {
 // MARK: - EXTENSION
 extension RecordViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath) 
         cell.textLabel?.text = monogolueCategory[indexPath.row].rawValue
         return cell
     }

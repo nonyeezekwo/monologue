@@ -12,6 +12,8 @@ struct Identifier {
     static let addRecording      = "addMonologueSegue"
     static let showMemos        = "TableViewSegue"
     static let memoCell     = "MemoCell"
-    static let detailsegue     = "DetailSegue"
-    static let detailVC = "DetailViewController"
+    static let detailSegue     = "DetailSegue"
+    static let recordVC = "RecordSegue"
+    static let recordView = "RecordViewController"
+    static let detailVC = "DetailsViewController"
 }

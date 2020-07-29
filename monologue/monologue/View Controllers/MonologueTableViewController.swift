@@ -21,44 +21,15 @@ class MonologueTableViewController: UITableViewController {
     
     var dateFormatter: DateFormatter?
     var monologueCountLabel: UILabel!
-    
 //    weak var delegate: MemoDelegate?
     var fetchedResultsController: NSFetchedResultsController<Monologue>?
     
-//    lazy var fetchedResultsController: NSFetchedResultsController<Monologue> = {
-//        let fetchRequest: NSFetchRequest<Monologue> = Monologue.fetchRequest()
-//        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "dateCreated", ascending: false)]
-//
-//        guard let category = category else {
-//            fatalError("Category was never passed to TableViewController")
-//        }
-//
-//        let predicate = NSPredicate(format: "category == %@", category.rawValue)
-//        fetchRequest.predicate = predicate
-//
-//        let context = CoreDataStack.shared.mainContext
-//        let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
-//                                             managedObjectContext: context,
-//                                             sectionNameKeyPath: nil,
-//                                             cacheName: nil)
-//        frc.delegate = self
-//
-//        do {
-//            try frc.performFetch()
-//        } catch {
-//            fatalError("Error performing fetch:\(error)")
-//        }
-//
-//        return frc
-//    }()
-    
     // MARK: - View Lifecycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        tableView.delegate = self
-//        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     func setUpFetchResultsController() {
@@ -106,33 +77,42 @@ class MonologueTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let detailVC = storyboard?.instantiateViewController(identifier: Identifier.detailVC, creator: { coder in
-            guard let monologueController = self.monologueController,
-                let dateFormatter = self.dateFormatter,
-                let monologue = self.fetchedResultsController?.object(at: indexPath) else {
-                    fatalError("Info is not passing through view controllers")
-            }
-            
-            return DetailsViewController(coder: coder,
-                                         monologue: monologue,
-                                         monologueController: monologueController,
-                                         dateFormatter: dateFormatter)}) else { return }
-        
-        tableView.deselectRow(at: indexPath, animated: true)
-        navigationController?.pushViewController(detailVC, animated: false)
-    }
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        guard let detailVC = storyboard?.instantiateViewController(identifier: Identifier.detailVC, creator: { coder in
+//            guard let monologueController = self.monologueController,
+//                let dateFormatter = self.dateFormatter,
+//                let monologue = self.fetchedResultsController?.object(at: indexPath) else {
+//                    fatalError("Info is not passing through view controllers")
+//            }
+//
+//            //            return DetailsViewController(coder: coder,
+//            //                                         monologue: monologue,
+//            //                                         monologueController: monologueController,
+//            //                                         dateFormatter: dateFormatter)}) else { return }
+//            return DetailsViewController (coder: coder )}) else { return }
+//
+//        tableView.deselectRow(at: indexPath, animated: true)
+//        navigationController?.pushViewController(detailVC, animated: false)
+//    }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             guard let monologue = fetchedResultsController?.object(at: indexPath) else { return }
             monologueController?.deleteMonologue(monologue)
             guard let count = fetchedResultsController?.fetchedObjects?.count else { return }
-//            delegate?.updateCount(with: count)
+            //            delegate?.updateCount(with: count)
             tableView.reloadData()
         }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "DetailSegue" {
+            if let detailVC = segue.destination as? DetailsViewController,
+                let indexPath = tableView.indexPathForSelectedRow {
+                detailVC.monologue = fetchedResultsController!.object(at: indexPath)
+                detailVC.monologueController = monologueController
+            }
+        }
 //        if segue.identifier == Identifier.showMemos {
 //            if let destinationVC = segue.destination as? MonologueTableViewController {
 //                destinationVC.category = category
@@ -143,6 +123,7 @@ class MonologueTableViewController: UITableViewController {
 //        }
     }
 }
+
 
 extension MonologueTableViewController: NSFetchedResultsControllerDelegate {
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {

@@ -78,7 +78,7 @@
         <!--Monologue Table View Controller-->
         <scene sceneID="ChN-3T-cY9">
             <objects>
-                <tableViewController id="Cec-oD-pqd" customClass="MonologueTableViewController" customModule="monologue" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="TableView" id="Cec-oD-pqd" customClass="MonologueTableViewController" customModule="monologue" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="KL8-my-h4s">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -112,7 +112,7 @@
                                 <connections>
                                     <outlet property="dateLabel" destination="6r5-S2-FY7" id="Z3p-Rn-ogk"/>
                                     <outlet property="titleLabel" destination="TZ4-gq-iZo" id="bbE-Ke-HzJ"/>
-                                    <segue destination="bXW-va-ztn" kind="show" identifier="DetailSegue" id="C9x-q1-idv"/>
+                                    <segue destination="bXW-va-ztn" kind="show" identifier="DetailSegue" id="9gH-Yf-MSf"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -124,7 +124,7 @@
                     <navigationItem key="navigationItem" id="gka-hP-Ziq">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="F8C-6u-Nb4">
                             <connections>
-                                <segue destination="KY5-cd-ga1" kind="show" identifier="RecordSegue" id="t3y-2N-A3r"/>
+                                <segue destination="KY5-cd-ga1" kind="show" identifier="AddNewSegue" id="t3y-2N-A3r"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -136,7 +136,7 @@
         <!--Record View Controller-->
         <scene sceneID="mSx-ZU-dyi">
             <objects>
-                <viewController id="KY5-cd-ga1" customClass="RecordViewController" customModule="monologue" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecordViewController" id="KY5-cd-ga1" customClass="RecordViewController" customModule="monologue" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YJn-uu-0Wl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -209,7 +209,7 @@
         <!--Details View Controller-->
         <scene sceneID="urv-lt-bpF">
             <objects>
-                <viewController id="bXW-va-ztn" customClass="DetailsViewController" customModule="monologue" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailsViewController" id="bXW-va-ztn" customClass="DetailsViewController" customModule="monologue" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iBf-bK-RVI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -237,19 +237,34 @@
                                     </textView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAR-bV-Grq">
+                                <rect key="frame" x="190" y="778" width="34" height="30"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveNewMonologue:" destination="bXW-va-ztn" eventType="touchUpInside" id="vzi-tr-bK1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.60878013959999999" green="0.56036011900000005" blue="0.58722692499999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="uuh-1g-7Cx" firstAttribute="bottom" secondItem="kAR-bV-Grq" secondAttribute="bottom" constant="54" id="18D-rb-FbZ"/>
                             <constraint firstItem="ig9-6A-hOe" firstAttribute="leading" secondItem="uuh-1g-7Cx" secondAttribute="leading" constant="16" id="2V3-SG-kdn"/>
                             <constraint firstItem="ig9-6A-hOe" firstAttribute="top" secondItem="uuh-1g-7Cx" secondAttribute="top" id="3MG-NN-gSo"/>
                             <constraint firstItem="uuh-1g-7Cx" firstAttribute="bottom" secondItem="ig9-6A-hOe" secondAttribute="bottom" constant="92" id="ER7-EW-z23"/>
                             <constraint firstItem="uuh-1g-7Cx" firstAttribute="trailing" secondItem="ig9-6A-hOe" secondAttribute="trailing" constant="16" id="UJh-lV-lhC"/>
+                            <constraint firstItem="kAR-bV-Grq" firstAttribute="leading" secondItem="uuh-1g-7Cx" secondAttribute="leading" constant="190" id="lwt-vU-ktK"/>
+                            <constraint firstItem="uuh-1g-7Cx" firstAttribute="trailing" secondItem="kAR-bV-Grq" secondAttribute="trailing" constant="190" id="nEd-kg-J8O"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uuh-1g-7Cx"/>
                     </view>
                     <navigationItem key="navigationItem" id="3m9-Jf-tG0">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="jlM-wa-6f1"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="categoryTextField" destination="Jcb-1G-faP" id="QJx-5B-vo1"/>
+                        <outlet property="monologueTextView" destination="uCe-k9-lHW" id="zou-TG-9Ts"/>
+                        <outlet property="titleTextField" destination="inq-GR-td8" id="wMk-Jm-gfV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hcg-Ag-21K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -275,7 +290,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="t3y-2N-A3r"/>
+        <segue reference="xPq-9c-ELk"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="circle.fill" catalog="system" width="128" height="121"/>

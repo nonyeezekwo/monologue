@@ -8,35 +8,107 @@
 
 import UIKit
 
-class DetailsViewController: UIViewController {
+class DetailsViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     
-    @IBOutlet var shareButton: UIButton!
-    @IBOutlet var backgroundImage: UIImageView!
+    @IBOutlet var titleTextField: UITextField!
+    @IBOutlet var categoryTextField: UITextField!
     @IBOutlet var monologueTextView: UITextView!
     
-    // MARK: - Properties
+    // MARK: - PROPERTIES
     
-    let monologue: Monologue
-    let monologueController: MonologueController
-    let dateFormatter: DateFormatter
+    var monologue: Monologue?
+    var monologueController: MonologueController?
+    var categories = MonologueCategory.allCases
+    var selectedCategory: String?
+    var wasEdited = false
+    //    let dateFormatter: DateFormatter
     
+    //    var titleText = ""
+    //    var categoryText = ""
+    //    var monologueText = ""
+    
+//    init?(coder: NSCoder, monologue: Monologue,
+//          monologueController: MonologueController) {
+//        self.monologue = monologue
+//        self.monologueController = monologueController
+//        super.init(coder: coder)
+//    }
+//
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+//
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateViews()
         
-        // Do any additional setup after loading the view.
+        titleTextField.delegate = self
+        categoryTextField.delegate = self
+        monologueTextView.delegate = self
+        navigationItem.rightBarButtonItem = editButtonItem
+        //        titleTextField.text = titleText
+        //        categoryTextField.text = categoryText
+        //        monologueTextView.text = monologueText
     }
     
-    init?(coder: NSCoder, monologue: Monologue,
-          monologueController: MonologueController,
-          dateFormatter: DateFormatter) {
-        self.monologue = monologue
-        self.monologueController = monologueController
-        self.dateFormatter = dateFormatter
-        super.init(coder: coder)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(false)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+//        if wasEdited {
+//            guard let monologueTitle = titleTextField.text,
+//                !monologueTitle.isEmpty,
+//                let monologueText = monologueTextView.text,
+//                !monologueText.isEmpty,
+//                let category = categoryTextField.text,
+//                !category.isEmpty,
+//                let monologue = monologue else { return }
+//
+//            let title = titleTextField.text!
+//            monologue.monologueTitle = monologueTitle
+//            let text = monologueTextView.text
+//            monologue.text = text
+//            let categor = categoryTextField.text
+//            monologue.category = categor
+//            monologueController.updateMonologue(monologue, title: title, text: text, category: category)
+//
+//            do {
+//                try CoreDataStack.shared.save()
+//            } catch {
+//                NSLog("Error saving managed object context (during note edit): \(error)")
+//            }
+//        }
     }
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    
+    private func updateViews() {
+        guard let monologue = monologue else { return }
+        
+        titleTextField.text = monologue.monologueTitle
+        titleTextField.isUserInteractionEnabled = isEditing
+        
+        categoryTextField.text = monologue.category
+        categoryTextField.isUserInteractionEnabled = isEditing
+        
+        monologueTextView.text = monologue.text
+        monologueTextView.isUserInteractionEnabled = isEditing
     }
+    
+    // MARK: - ACTIONS
+    // SAVE BUTTON - TODO: CHANGE FROM SAVE TO EDIT WHEN EDITING
+    @IBAction func saveNewMonologue(_ sender: Any) {
+        guard
+            let title = titleTextField.text, !title.isEmpty,
+            let text = monologueTextView.text,
+            let urlString = monologue?.monologueURL,
+            let monologueURL = URL(string: urlString),
+            let categoryText = categoryTextField.text,
+            let category = MonologueCategory(rawValue: categoryText),
+            let monologue = monologue
+             else { return }
+
+        monologueController?.updateMonologue(monologue, title: title, text: text, category: category, monologueURL: monologueURL)
+        navigationController?.popToRootViewController(animated: true)
+    }
+    // BACK BUTTON
     
     /*
      // MARK: - Navigation

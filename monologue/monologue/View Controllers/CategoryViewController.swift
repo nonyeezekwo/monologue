@@ -52,6 +52,7 @@ class CategoryViewController: UIViewController {
                 destinationVC.dateFormatter = dateFormatter
                 //                destinationVC.delegate = self
             }
+    
         }
     }
 }

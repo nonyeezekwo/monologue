@@ -10,14 +10,16 @@ import UIKit
 
 class CategoryCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var featuredImageBackground: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subtitleLabel: UILabel!
+    
     
     var categoryImage: UIImageView!
     var categoryLabel: UILabel!
     
     var count = 0
     
-    var monologues: [Monologue]! {
+    var monologues: [Monologue] = [] {
         didSet {
             updateUI()
         }

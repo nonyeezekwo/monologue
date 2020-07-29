@@ -10,7 +10,6 @@ import UIKit
 
 class MemoTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var featuredImageBackground: UIImageView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
     
