@@ -33,6 +33,11 @@ class RecordViewController: UIViewController, UITextViewDelegate, UITextFieldDel
     private var request: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+         textField.resignFirstResponder()
+         return true
+     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -41,6 +46,9 @@ class RecordViewController: UIViewController, UITextViewDelegate, UITextFieldDel
         textField.delegate = self
         chooseCategory.delegate = self
         
+        textField.layer.cornerRadius = 10
+        textView.layer.cornerRadius = 10
+
         updateViews()
     }
     

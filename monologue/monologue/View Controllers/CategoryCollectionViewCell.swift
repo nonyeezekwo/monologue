@@ -52,6 +52,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
             categoryImage.leadingAnchor.constraint(equalTo: leadingAnchor),
             categoryImage.bottomAnchor.constraint(equalTo: bottomAnchor),
             categoryImage.widthAnchor.constraint(equalTo: widthAnchor)
+            
         ])
     }
     
