@@ -12,6 +12,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
+//    @IBOutlet weak var featuredImageBackground: UIImageView!
     
     
     var categoryImage: UIImageView!
@@ -49,6 +50,17 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     private func setUpSubviews() {
         layer.cornerRadius = 10
         clipsToBounds = true
+        categoryImage = UIImageView()
+        categoryImage.contentMode = .scaleAspectFill
+               categoryImage.translatesAutoresizingMaskIntoConstraints = false
+               addSubview(categoryImage)
+
+               NSLayoutConstraint.activate([
+                   categoryImage.topAnchor.constraint(equalTo: topAnchor),
+                   categoryImage.leadingAnchor.constraint(equalTo: leadingAnchor),
+                   categoryImage.bottomAnchor.constraint(equalTo: bottomAnchor),
+                   categoryImage.widthAnchor.constraint(equalTo: widthAnchor)
+               ])
     }
     
     //    var category: Category! {
@@ -78,12 +90,10 @@ class CategoryCollectionViewCell: UICollectionViewCell {
 //}
 
     func updateUI() {
-        guard let categoryClass = categoryClass,
-            let category = category else { return }
-//                    featuredImageBackground.image = categoryClass.featuredImage // -- lets try something new below
-        //            featuredImageBackground.image = UIImage(named: category.rawValue)
-        categoryImage.image = UIImage(named: category.rawValue)
-        categoryLabel.text =  category.rawValue.capitalized
+//        guard let categoryClass = categoryClass,
+            guard let category = category else { return }
+//        featuredImageBackground.image = categoryClass.featuredImage // -- lets try something new below
+        categoryImage.image = UIImage(named: category.rawValue.lowercased())
         //        } else {
         //            featuredImageBackground.image = nil
         //            categoryImage.image = nil
