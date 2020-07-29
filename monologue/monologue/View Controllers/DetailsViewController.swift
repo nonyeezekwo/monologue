@@ -20,11 +20,6 @@ class DetailsViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     var monologueController: MonologueController?
     var categories = MonologueCategory.allCases
     var wasEdited = false
-    //    let dateFormatter: DateFormatter
-    
-    //    var titleText = ""
-    //    var categoryText = ""
-    //    var monologueText = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,9 +29,6 @@ class DetailsViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         categoryTextField.delegate = self
         monologueTextView.delegate = self
         navigationItem.rightBarButtonItem = editButtonItem
-        //        titleTextField.text = titleText
-        //        categoryTextField.text = categoryText
-        //        monologueTextView.text = monologueText
     }
     
     override func viewWillDisappear(_ animated: Bool) {
