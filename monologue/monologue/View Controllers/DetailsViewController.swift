@@ -19,25 +19,13 @@ class DetailsViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     var monologue: Monologue?
     var monologueController: MonologueController?
     var categories = MonologueCategory.allCases
-    var selectedCategory: String?
     var wasEdited = false
     //    let dateFormatter: DateFormatter
     
     //    var titleText = ""
     //    var categoryText = ""
     //    var monologueText = ""
-    
-//    init?(coder: NSCoder, monologue: Monologue,
-//          monologueController: MonologueController) {
-//        self.monologue = monologue
-//        self.monologueController = monologueController
-//        super.init(coder: coder)
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-//
+
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
@@ -53,32 +41,44 @@ class DetailsViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(false)
-        navigationController?.setNavigationBarHidden(false, animated: false)
-//        if wasEdited {
-//            guard let monologueTitle = titleTextField.text,
-//                !monologueTitle.isEmpty,
-//                let monologueText = monologueTextView.text,
-//                !monologueText.isEmpty,
-//                let category = categoryTextField.text,
-//                !category.isEmpty,
-//                let monologue = monologue else { return }
-//
-//            let title = titleTextField.text!
-//            monologue.monologueTitle = monologueTitle
-//            let text = monologueTextView.text
-//            monologue.text = text
-//            let categor = categoryTextField.text
-//            monologue.category = categor
-//            monologueController.updateMonologue(monologue, title: title, text: text, category: category)
-//
-//            do {
-//                try CoreDataStack.shared.save()
-//            } catch {
-//                NSLog("Error saving managed object context (during note edit): \(error)")
-//            }
-//        }
+//        navigationController?.setNavigationBarHidden(false, animated: false)
+        if wasEdited {
+            guard let monologueTitle = titleTextField.text,
+                !monologueTitle.isEmpty,
+                let monologueText = monologueTextView.text,
+                !monologueText.isEmpty,
+                let category = categoryTextField.text,
+                !category.isEmpty,
+                let monologue = monologue else { return }
+
+            let title = titleTextField.text!
+            monologue.monologueTitle = monologueTitle
+            let text = monologueTextView.text
+            monologue.text = text
+            let categor = categoryTextField.text
+            monologue.category = categor
+            
+//            monologueController?.updateMonologue(with: monologue)
+            do {
+                try CoreDataStack.shared.save()
+            } catch {
+                NSLog("Error saving managed object context (during note edit): \(error)")
+            }
+        }
     }
     
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        
+        if editing { wasEdited = true }
+        
+        titleTextField.isUserInteractionEnabled = editing
+        monologueTextView.isUserInteractionEnabled = editing
+        categoryTextField.isUserInteractionEnabled = editing
+        
+        navigationItem.hidesBackButton = editing
+    }
+
     private func updateViews() {
         guard let monologue = monologue else { return }
         
@@ -93,7 +93,7 @@ class DetailsViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     }
     
     // MARK: - ACTIONS
-    // SAVE BUTTON - TODO: CHANGE FROM SAVE TO EDIT WHEN EDITING
+//     SAVE BUTTON - TODO: CHANGE FROM SAVE TO EDIT WHEN EDITING
     @IBAction func saveNewMonologue(_ sender: Any) {
         guard
             let title = titleTextField.text, !title.isEmpty,
