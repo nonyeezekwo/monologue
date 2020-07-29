@@ -18,7 +18,6 @@ class MonologueTableViewController: UITableViewController {
         }
     }
     
-    
     var dateFormatter: DateFormatter?
     var monologueCountLabel: UILabel!
 //    weak var delegate: MemoDelegate?
@@ -77,24 +76,6 @@ class MonologueTableViewController: UITableViewController {
         return cell
     }
     
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        guard let detailVC = storyboard?.instantiateViewController(identifier: Identifier.detailVC, creator: { coder in
-//            guard let monologueController = self.monologueController,
-//                let dateFormatter = self.dateFormatter,
-//                let monologue = self.fetchedResultsController?.object(at: indexPath) else {
-//                    fatalError("Info is not passing through view controllers")
-//            }
-//
-//            //            return DetailsViewController(coder: coder,
-//            //                                         monologue: monologue,
-//            //                                         monologueController: monologueController,
-//            //                                         dateFormatter: dateFormatter)}) else { return }
-//            return DetailsViewController (coder: coder )}) else { return }
-//
-//        tableView.deselectRow(at: indexPath, animated: true)
-//        navigationController?.pushViewController(detailVC, animated: false)
-//    }
-    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             guard let monologue = fetchedResultsController?.object(at: indexPath) else { return }
@@ -113,14 +94,6 @@ class MonologueTableViewController: UITableViewController {
                 detailVC.monologueController = monologueController
             }
         }
-//        if segue.identifier == Identifier.showMemos {
-//            if let destinationVC = segue.destination as? MonologueTableViewController {
-//                destinationVC.category = category
-//                destinationVC.monologueController = monologueController
-//                destinationVC.dateFormatter = dateFormatter
-////                destinationVC.delegate = self
-//            }
-//        }
     }
 }
 
