@@ -15,7 +15,6 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     var categoryImage: UIImageView!
     var categoryLabel: UILabel!
-    
     var count = 0
     
     var monologues: [Monologue] = [] {
