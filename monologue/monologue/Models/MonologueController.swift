@@ -37,16 +37,6 @@ class MonologueController {
         CoreDataStack.shared.save()
     }
     
-//    func updateMonologue(monologue: Monologue, with representations: MonologueRepresentation) {
-//
-//        monologue.monologueTitle = representations.monologueTitle
-//        monologue.category = representations.category
-//        monologue.text = representations.text
-//
-//        CoreDataStack.shared.save()
-//
-//    }
-    
     func deleteMonologue(_ monologue: Monologue) {
         CoreDataStack.shared.mainContext.delete(monologue)
         CoreDataStack.shared.save()
