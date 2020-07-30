@@ -109,7 +109,8 @@ class RecordViewController: UIViewController, UITextViewDelegate, UITextFieldDel
             textView.isEditable = true
             
             if textView.text.isEmpty {
-                textView.text = "Please speak so I can get to work"
+                textView.text = "👂🏾"
+                textView.textAlignment = .center
                 textView.isEditable = false
                 textView.isSelectable = false
             }

@@ -29,6 +29,9 @@ class DetailsViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         categoryTextField.delegate = self
         monologueTextView.delegate = self
         navigationItem.rightBarButtonItem = editButtonItem
+        
+        titleTextField.layer.cornerRadius = 10
+        monologueTextView.layer.cornerRadius = 10
     }
     
     override func viewWillDisappear(_ animated: Bool) {

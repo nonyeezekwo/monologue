@@ -165,11 +165,11 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F1s-ri-PJL">
-                                <rect key="frame" x="194" y="763" width="26" height="25"/>
-                                <state key="normal" image="livephoto" catalog="system">
+                                <rect key="frame" x="157" y="760" width="99" height="88"/>
+                                <state key="normal" image="Untitled design-2">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                 </state>
-                                <state key="selected" image="circle.fill" catalog="system"/>
+                                <state key="selected" image="Untitled design-3"/>
                                 <connections>
                                     <action selector="recordButtonTapped:" destination="KY5-cd-ga1" eventType="touchUpInside" id="W59-tk-Iyp"/>
                                 </connections>
@@ -177,13 +177,13 @@
                         </subviews>
                         <color key="backgroundColor" red="0.60878013959999999" green="0.56036011900000005" blue="0.58722692499999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="eqL-ek-qyY" firstAttribute="trailing" secondItem="F1s-ri-PJL" secondAttribute="trailing" constant="194" id="3MS-IO-lLg"/>
+                            <constraint firstItem="F1s-ri-PJL" firstAttribute="top" secondItem="dhC-8G-6F0" secondAttribute="bottom" constant="8" id="Bam-Bs-Gup"/>
                             <constraint firstItem="eqL-ek-qyY" firstAttribute="bottom" secondItem="dhC-8G-6F0" secondAttribute="bottom" constant="110" id="CEQ-4F-u2I"/>
-                            <constraint firstItem="F1s-ri-PJL" firstAttribute="top" secondItem="dhC-8G-6F0" secondAttribute="bottom" constant="11" id="K1L-Ib-Cpb"/>
+                            <constraint firstItem="eqL-ek-qyY" firstAttribute="bottom" secondItem="F1s-ri-PJL" secondAttribute="bottom" constant="14" id="Gr9-U5-1Z8"/>
+                            <constraint firstItem="F1s-ri-PJL" firstAttribute="leading" secondItem="eqL-ek-qyY" secondAttribute="leading" constant="157" id="KUU-WY-XUg"/>
                             <constraint firstItem="eqL-ek-qyY" firstAttribute="trailing" secondItem="dhC-8G-6F0" secondAttribute="trailing" constant="16" id="UTI-Fv-jb9"/>
                             <constraint firstItem="dhC-8G-6F0" firstAttribute="leading" secondItem="eqL-ek-qyY" secondAttribute="leading" constant="16" id="UeQ-1J-STG"/>
-                            <constraint firstItem="F1s-ri-PJL" firstAttribute="leading" secondItem="eqL-ek-qyY" secondAttribute="leading" constant="194" id="Y7c-oS-Gi8"/>
-                            <constraint firstItem="eqL-ek-qyY" firstAttribute="bottom" secondItem="F1s-ri-PJL" secondAttribute="bottom" constant="74" id="thP-lo-eJR"/>
+                            <constraint firstItem="eqL-ek-qyY" firstAttribute="trailing" secondItem="F1s-ri-PJL" secondAttribute="trailing" constant="158" id="nM3-qZ-b2S"/>
                             <constraint firstItem="dhC-8G-6F0" firstAttribute="top" secondItem="eqL-ek-qyY" secondAttribute="top" id="ubS-ge-Aq1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eqL-ek-qyY"/>
@@ -204,7 +204,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cTm-fy-OUV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1835" y="-315"/>
+            <point key="canvasLocation" x="1834.7826086956522" y="-315.40178571428572"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="urv-lt-bpF">
@@ -237,9 +237,9 @@
                                     </textView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAR-bV-Grq">
-                                <rect key="frame" x="190" y="778" width="34" height="30"/>
-                                <state key="normal" title="Save"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAR-bV-Grq">
+                                <rect key="frame" x="152" y="778" width="111" height="96"/>
+                                <state key="normal" title="Save" image="Untitled design-4"/>
                                 <connections>
                                     <action selector="saveNewMonologue:" destination="bXW-va-ztn" eventType="touchUpInside" id="vzi-tr-bK1"/>
                                 </connections>
@@ -247,13 +247,14 @@
                         </subviews>
                         <color key="backgroundColor" red="0.60878013959999999" green="0.56036011900000005" blue="0.58722692499999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="uuh-1g-7Cx" firstAttribute="bottom" secondItem="kAR-bV-Grq" secondAttribute="bottom" constant="54" id="18D-rb-FbZ"/>
                             <constraint firstItem="ig9-6A-hOe" firstAttribute="leading" secondItem="uuh-1g-7Cx" secondAttribute="leading" constant="16" id="2V3-SG-kdn"/>
                             <constraint firstItem="ig9-6A-hOe" firstAttribute="top" secondItem="uuh-1g-7Cx" secondAttribute="top" id="3MG-NN-gSo"/>
+                            <constraint firstItem="kAR-bV-Grq" firstAttribute="bottom" secondItem="uuh-1g-7Cx" secondAttribute="bottom" id="A5a-rI-yfg"/>
                             <constraint firstItem="uuh-1g-7Cx" firstAttribute="bottom" secondItem="ig9-6A-hOe" secondAttribute="bottom" constant="92" id="ER7-EW-z23"/>
+                            <constraint firstItem="kAR-bV-Grq" firstAttribute="top" secondItem="ig9-6A-hOe" secondAttribute="bottom" constant="8" id="N5x-5P-F9z"/>
                             <constraint firstItem="uuh-1g-7Cx" firstAttribute="trailing" secondItem="ig9-6A-hOe" secondAttribute="trailing" constant="16" id="UJh-lV-lhC"/>
-                            <constraint firstItem="kAR-bV-Grq" firstAttribute="leading" secondItem="uuh-1g-7Cx" secondAttribute="leading" constant="190" id="lwt-vU-ktK"/>
-                            <constraint firstItem="uuh-1g-7Cx" firstAttribute="trailing" secondItem="kAR-bV-Grq" secondAttribute="trailing" constant="190" id="nEd-kg-J8O"/>
+                            <constraint firstItem="kAR-bV-Grq" firstAttribute="leading" secondItem="uuh-1g-7Cx" secondAttribute="leading" constant="152" id="YDO-pj-lML"/>
+                            <constraint firstItem="uuh-1g-7Cx" firstAttribute="trailing" secondItem="kAR-bV-Grq" secondAttribute="trailing" constant="151" id="eZD-Or-UJz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uuh-1g-7Cx"/>
                     </view>
@@ -293,8 +294,9 @@
         <segue reference="t3y-2N-A3r"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="circle.fill" catalog="system" width="128" height="121"/>
-        <image name="livephoto" catalog="system" width="128" height="121"/>
+        <image name="Untitled design-2" width="2160" height="2160"/>
+        <image name="Untitled design-3" width="2160" height="2160"/>
+        <image name="Untitled design-4" width="2160" height="2160"/>
         <image name="memories" width="338" height="600"/>
         <image name="mic" catalog="system" width="108" height="128"/>
     </resources>
