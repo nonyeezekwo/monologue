@@ -11,7 +11,7 @@ import UIKit
 class CategoryViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    #warning("Need to figure this out cause I need to be able to fetch the category images")
+
 //    var categories = Category.fetchCategories()
     
     var categories = Category.fetchCategories()

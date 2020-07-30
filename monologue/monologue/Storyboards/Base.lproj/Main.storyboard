@@ -18,7 +18,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rf3-EZ-Lmy">
                                 <rect key="frame" x="0.0" y="99" width="414" height="699"/>
-                                <color key="backgroundColor" red="0.69166402284263961" green="0.41730236236983503" blue="0.31149619503861437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.89427347710000005" green="0.54478385610000002" blue="0.4088895199" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="30" minimumInteritemSpacing="20" id="fae-XS-RiU">
                                     <size key="itemSize" width="275" height="600"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -51,7 +51,7 @@
                                 </cells>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="0.69166402279999994" green="0.41730236240000002" blue="0.31149619499999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.89427347710000005" green="0.54478385610000002" blue="0.4088895199" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rf3-EZ-Lmy" secondAttribute="bottom" constant="64" id="2YG-jd-zSh"/>
                             <constraint firstItem="rf3-EZ-Lmy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="903-c0-XZj"/>

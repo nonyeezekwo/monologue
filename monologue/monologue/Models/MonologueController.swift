@@ -13,7 +13,6 @@ class MonologueController {
     
     var monologues: [Monologue] = []
     static let shared = MonologueController()
-    var monologueRepresentation: [MonologueRepresentation] = []
     
     func createMonologue(title: String,
                          text: String,

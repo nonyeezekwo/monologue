@@ -25,7 +25,6 @@
 		B4A7A3D424CF80740016D31F /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A7A3D324CF80740016D31F /* Identifiers.swift */; };
 		B4A7A3D624CF81A30016D31F /* MemoDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A7A3D524CF81A30016D31F /* MemoDelegate.swift */; };
 		B4A7A3D824CF832A0016D31F /* MemoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A7A3D724CF832A0016D31F /* MemoTableViewCell.swift */; };
-		B4A7A3DA24D1D8750016D31F /* MonologueRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A7A3D924D1D8750016D31F /* MonologueRepresentation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,7 +48,6 @@
 		B4A7A3D324CF80740016D31F /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
 		B4A7A3D524CF81A30016D31F /* MemoDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoDelegate.swift; sourceTree = "<group>"; };
 		B4A7A3D724CF832A0016D31F /* MemoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoTableViewCell.swift; sourceTree = "<group>"; };
-		B4A7A3D924D1D8750016D31F /* MonologueRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonologueRepresentation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +118,6 @@
 		B4A7A3C924CF65ED0016D31F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B4A7A3D924D1D8750016D31F /* MonologueRepresentation.swift */,
 				B4A7A3C724CF645E0016D31F /* MonologueController.swift */,
 				B4A7A3CD24CF6CCF0016D31F /* Category.swift */,
 			);
@@ -209,7 +206,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4A7A3DA24D1D8750016D31F /* MonologueRepresentation.swift in Sources */,
 				B4A7A3C824CF645E0016D31F /* MonologueController.swift in Sources */,
 				B4A7A3D624CF81A30016D31F /* MemoDelegate.swift in Sources */,
 				B4A7A3C224CF63450016D31F /* CoreDataStack.swift in Sources */,
@@ -371,7 +367,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JKA99996Q5;
 				INFOPLIST_FILE = monologue/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -390,7 +386,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JKA99996Q5;
 				INFOPLIST_FILE = monologue/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

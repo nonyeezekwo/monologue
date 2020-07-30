@@ -33,10 +33,6 @@ class RecordViewController: UIViewController, UITextViewDelegate, UITextFieldDel
     private var request: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//         textField.resignFirstResponder()
-//         return true
-//     }
     
     func setupTextFields() {
         let toolbar = UIToolbar(frame: CGRect(origin: .zero, size: .init(width: view.frame.size.width, height: 30)))
@@ -48,7 +44,6 @@ class RecordViewController: UIViewController, UITextViewDelegate, UITextFieldDel
         
         textField.inputAccessoryView = toolbar
         chooseCategory.inputAccessoryView = toolbar
-        
     }
     
     @objc func doneButtonAction() {
