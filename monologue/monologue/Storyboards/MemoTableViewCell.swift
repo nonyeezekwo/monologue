@@ -34,11 +34,5 @@ class MemoTableViewCell: UITableViewCell {
         let dateString = dateFormatter.string(from: date)
         titleLabel.text = monologue.monologueTitle
         dateLabel.text = dateString.uppercased()
-//        layer.cornerRadius = 10
-//        layer.masksToBounds = true
-//        layer.cornerRadius = frame.size.width / 15
-//        layer.borderWidth = 2.0
-//        layer.borderColor = UIColor.black.cgColor
     }
-    
 }

@@ -20,7 +20,8 @@ class DetailsViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     var monologueController: MonologueController?
     var categories = MonologueCategory.allCases
     var wasEdited = false
-
+    var editCategoryPicker: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
@@ -32,6 +33,8 @@ class DetailsViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         
         titleTextField.layer.cornerRadius = 10
         monologueTextView.layer.cornerRadius = 10
+        createPickerView()
+        dismissPickerView()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -44,20 +47,13 @@ class DetailsViewController: UIViewController, UITextFieldDelegate, UITextViewDe
                 let category = categoryTextField.text,
                 !category.isEmpty,
                 let monologue = monologue else { return }
-
+            
             let title = titleTextField.text!
             monologue.monologueTitle = monologueTitle
             let text = monologueTextView.text
             monologue.text = text
             let categor = categoryTextField.text
             monologue.category = categor
-            
-//            monologueController?.updateMonologue(with: monologue)
-            do {
-                try CoreDataStack.shared.save()
-            } catch {
-                NSLog("Error saving managed object context (during note edit): \(error)")
-            }
         }
     }
     
@@ -72,7 +68,7 @@ class DetailsViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         
         navigationItem.hidesBackButton = editing
     }
-
+    
     private func updateViews() {
         guard let monologue = monologue else { return }
         
@@ -96,8 +92,8 @@ class DetailsViewController: UIViewController, UITextFieldDelegate, UITextViewDe
             let categoryText = categoryTextField.text,
             let category = MonologueCategory(rawValue: categoryText),
             let monologue = monologue
-             else { return }
-
+            else { return }
+        
         monologueController?.updateMonologue(monologue, title: title, text: text, category: category, monologueURL: monologueURL)
         navigationController?.popToRootViewController(animated: true)
     }
@@ -112,4 +108,40 @@ class DetailsViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         let activityVC = UIActivityViewController(activityItems: [data], applicationActivities: [])
         present(activityVC, animated: true, completion: nil)
     }
+}
+// MARK: - PICKER VIEW EXTENSTION
+extension DetailsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return categories.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return categories[row].rawValue // dropdown item
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        editCategoryPicker = categories[row].rawValue // selected item
+        categoryTextField.text = editCategoryPicker
+    }
+    
+    func createPickerView() {
+        let pickerView = UIPickerView()
+        pickerView.delegate = self
+        categoryTextField.inputView = pickerView
+    }
+    func dismissPickerView() {
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        let button = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.action))
+        toolBar.setItems([button], animated: true)
+        toolBar.isUserInteractionEnabled = true
+        categoryTextField.inputAccessoryView = toolBar
+    }
+    @objc func action() {
+        view.endEditing(true)
+    }
+    
 }

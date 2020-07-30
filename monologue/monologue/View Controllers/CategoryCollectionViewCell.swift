@@ -9,10 +9,7 @@
 import UIKit
 
 class CategoryCollectionViewCell: UICollectionViewCell {
-    
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var subtitleLabel: UILabel!
-    
+
     var categoryImage: UIImageView!
     var categoryLabel: UILabel!
     var count = 0
@@ -52,7 +49,6 @@ class CategoryCollectionViewCell: UICollectionViewCell {
             categoryImage.leadingAnchor.constraint(equalTo: leadingAnchor),
             categoryImage.bottomAnchor.constraint(equalTo: bottomAnchor),
             categoryImage.widthAnchor.constraint(equalTo: widthAnchor)
-            
         ])
     }
     

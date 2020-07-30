@@ -12,15 +12,14 @@ import CoreData
 class MonologueTableViewController: UITableViewController {
     
     var monologueController: MonologueController?
+    var dateFormatter: DateFormatter?
+    var monologueCountLabel: UILabel!
+    var fetchedResultsController: NSFetchedResultsController<Monologue>?
     var category: Category? {
         didSet {
             setUpFetchResultsController()
         }
     }
-    
-    var dateFormatter: DateFormatter?
-    var monologueCountLabel: UILabel!
-    var fetchedResultsController: NSFetchedResultsController<Monologue>?
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -121,7 +120,7 @@ class MonologueTableViewController: UITableViewController {
         } else if (indexPath.row == tableView.numberOfRows(inSection: indexPath.section)-1) {
             
             pathRef.move(to: CGPoint(x: bounds.minX, y: bounds.minY), transform: CGAffineTransform())
-
+            
             pathRef.addArc(tangent1End: CGPoint(x: bounds.minX, y: bounds.maxY), tangent2End: CGPoint(x: bounds.midX, y: bounds.maxY), radius: cornerRadius)
             pathRef.addArc(tangent1End: CGPoint(x: bounds.maxX, y: bounds.maxY), tangent2End: CGPoint(x: bounds.maxX, y: bounds.midY), radius: cornerRadius)
             pathRef.addLine(to:CGPoint(x: bounds.maxX, y: bounds.minY) )
@@ -150,7 +149,7 @@ class MonologueTableViewController: UITableViewController {
     }
 }
 
-// MARK: - EXTENSION
+// MARK: - EXTENSION FRC
 extension MonologueTableViewController: NSFetchedResultsControllerDelegate {
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()

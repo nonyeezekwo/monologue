@@ -17,22 +17,19 @@ class RecordViewController: UIViewController, UITextViewDelegate, UITextFieldDel
     @IBOutlet var recordButton: UIButton!
     @IBOutlet var textView: UITextView!
     
-    //    let transparentView = UIView()
+    // MARK: - PROPERTIES
     let tableView = UITableView()
     var monologueURL: URL?
     var selectedButton: String?
-    //    var monologueCategory: MonologueCategory?
     var monogolueCategory = [MonologueCategory]()
     var monologueController: MonologueController?
     var categories = MonologueCategory.allCases
-    //    var monologueCategory: MonologueCategory?
-    //    var dataSource = [MonologueCategory]()
     
+    // AUDIO PROPERTIES
     private let audioEngine = AVAudioEngine()
     private let speechRecognizer = SFSpeechRecognizer()
     private var request: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
-    
     
     func setupTextFields() {
         let toolbar = UIToolbar(frame: CGRect(origin: .zero, size: .init(width: view.frame.size.width, height: 30)))
@@ -56,6 +53,8 @@ class RecordViewController: UIViewController, UITextViewDelegate, UITextFieldDel
         setupTextFields()
         createPickerView()
         dismissPickerView()
+        updateViews()
+        
         tableView.delegate = self
         tableView.dataSource = self
         textView.delegate = self
@@ -64,43 +63,8 @@ class RecordViewController: UIViewController, UITextViewDelegate, UITextFieldDel
         
         textField.layer.cornerRadius = 10
         textView.layer.cornerRadius = 10
-        
-//        textField.text = textField.text?.uppercased()
-
-        
-        textView.text = "\u{2022}"
-
-        updateViews()
+        self.navigationController?.navigationBar.tintColor = UIColor.white
     }
-    
-    
-    //    func addTransparentView(frames: CGRect) {
-    //        let window = UIApplication.shared.keyWindow
-    //        transparentView.frame = window?.frame ?? self.view.frame
-    //        self.view.addSubview(transparentView)
-    //
-    //        tableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height, width: frames.width, height: 0)
-    //        self.view.addSubview(tableView)
-    //        tableView.layer.cornerRadius = 5
-    //
-    //        transparentView.backgroundColor = UIColor.black.withAlphaComponent(0.9)
-    //
-    //        let tappedButton = UITapGestureRecognizer(target: self, action: #selector(removeTransparentView))
-    //        transparentView.addGestureRecognizer(tappedButton)
-    //        transparentView.alpha = 0
-    //        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseOut, animations: { self.transparentView.alpha = 0.5
-    //            self.tableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height, width: frames.width + 5, height: 200)
-    //
-    //        }, completion: nil)
-    //    }
-    //
-    //    @objc func removeTransparentView() {
-    //        let frames = selectedButton.frame
-    //        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseOut, animations: { self.transparentView.alpha = 0
-    //                self.tableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height, width: frames.width, height: 0)
-    //        }, completion: nil)
-    //    }
-    
     
     // MARK: - ACTIONS
     // Save Button Tapped
@@ -139,14 +103,6 @@ class RecordViewController: UIViewController, UITextViewDelegate, UITextFieldDel
         }
     }
     
-    
-    //@IBAction func tappedCategory(_ sender: Any) {
-    ////    monogolueCategory = [monogolueCategory].self
-    ////    selectedButton = chooseCategory
-    //    addTransparentView(frames: chooseCategory.frame)
-    //
-    //    }
-    //
     private func requestAuthorization() {
         SFSpeechRecognizer.requestAuthorization { [weak self] status in
             guard let self = self else { return }
@@ -283,7 +239,12 @@ extension RecordViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedButton = categories[row].rawValue // selected item
-    chooseCategory.text = selectedButton
+        chooseCategory.text = selectedButton
+    }
+    public func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        let titleData = categories[row].rawValue
+        let myCategory = NSAttributedString(string: titleData, attributes: [NSAttributedString.Key.font:UIFont(name: "Helvetica", size: 17.0)!,NSAttributedString.Key.foregroundColor:UIColor.orange])
+        return myCategory
     }
     
     func createPickerView() {
@@ -292,15 +253,16 @@ extension RecordViewController: UIPickerViewDelegate, UIPickerViewDataSource {
            chooseCategory.inputView = pickerView
     }
     func dismissPickerView() {
-       let toolBar = UIToolbar()
-       toolBar.sizeToFit()
-       let button = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.action))
-       toolBar.setItems([button], animated: true)
-       toolBar.isUserInteractionEnabled = true
-       chooseCategory.inputAccessoryView = toolBar
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        let button = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.action))
+        button.tintColor = .orange
+        toolBar.barTintColor = .lightGray
+        toolBar.setItems([button], animated: true)
+        toolBar.isUserInteractionEnabled = true
+        chooseCategory.inputAccessoryView = toolBar
     }
     @objc func action() {
           view.endEditing(true)
     }
-    
 }

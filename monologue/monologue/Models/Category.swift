@@ -22,7 +22,7 @@ class Category {
     
     var monologueCategory: MonologueCategory?
     var featuredImage: UIImage
-
+    
     init(featuredImage: UIImage, monologueCategory: MonologueCategory) {
         self.featuredImage = featuredImage
         self.monologueCategory = monologueCategory
@@ -31,11 +31,10 @@ class Category {
         return [
             Category(featuredImage: UIImage(named: "thoughts")!, monologueCategory: .misc),
             Category(featuredImage: UIImage(named: "tasks")!, monologueCategory: .tasks),
-             Category(featuredImage: UIImage(named: "work")!,monologueCategory: .work),
+            Category(featuredImage: UIImage(named: "work")!,monologueCategory: .work),
             Category(featuredImage: UIImage(named: "memories")!, monologueCategory: .memories),
             Category(featuredImage: UIImage(named: "vacation")!,monologueCategory: .vacation),
             Category(featuredImage: UIImage(named: "knowledge")!, monologueCategory: .knowledge)
-            // TODO:  ADD OTHER CATEGORIES AND PICTURES
         ]
     }
 }

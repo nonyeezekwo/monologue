@@ -25,6 +25,7 @@ class CategoryViewController: UIViewController {
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
+        self.navigationController?.navigationBar.tintColor = UIColor.white
     }
     
     // MARK: - Navigation

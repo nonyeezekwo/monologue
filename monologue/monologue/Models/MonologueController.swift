@@ -32,7 +32,7 @@ class MonologueController {
         monologue.monologueTitle = title
         monologue.text = text
         monologue.category = category.rawValue
-
+        
         CoreDataStack.shared.save()
     }
     

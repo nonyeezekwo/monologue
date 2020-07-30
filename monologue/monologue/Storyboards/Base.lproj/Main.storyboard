@@ -82,7 +82,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="KL8-my-h4s">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.69166402279999994" green="0.41730236240000002" blue="0.31149619499999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.89427347710000005" green="0.54478385610000002" blue="0.4088895199" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="separatorColor" red="0.60878013959999999" green="0.56036011900000005" blue="0.58722692499999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
@@ -146,18 +146,19 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter title here:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FEG-mJ-m0e">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="34"/>
+                                        <color key="backgroundColor" red="1" green="0.82550652769999999" blue="0.63082406189999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose your category:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G17-m8-HJg">
                                         <rect key="frame" x="0.0" y="42" width="382" height="34"/>
+                                        <color key="backgroundColor" red="1" green="0.82550652769999999" blue="0.63082406189999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RhG-Ck-f1x">
                                         <rect key="frame" x="0.0" y="84" width="382" height="528"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <color key="backgroundColor" red="1" green="0.82550652769999999" blue="0.63082406189999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -175,7 +176,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.69166402279999994" green="0.41730236240000002" blue="0.31149619499999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.89427347710000005" green="0.54478385610000002" blue="0.4088895199" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="F1s-ri-PJL" firstAttribute="top" secondItem="dhC-8G-6F0" secondAttribute="bottom" constant="8" id="Bam-Bs-Gup"/>
                             <constraint firstItem="eqL-ek-qyY" firstAttribute="bottom" secondItem="dhC-8G-6F0" secondAttribute="bottom" constant="110" id="CEQ-4F-u2I"/>
@@ -219,18 +220,19 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Edit Title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="inq-GR-td8">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="34"/>
+                                        <color key="backgroundColor" red="1" green="0.82550652769999999" blue="0.63082406189999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Change Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jcb-1G-faP">
                                         <rect key="frame" x="0.0" y="42" width="382" height="34"/>
+                                        <color key="backgroundColor" red="1" green="0.82550652769999999" blue="0.63082406189999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uCe-k9-lHW">
                                         <rect key="frame" x="0.0" y="84" width="382" height="546"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <color key="backgroundColor" red="1" green="0.82550652769999999" blue="0.63082406189999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -253,11 +255,12 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.69166402279999994" green="0.41730236240000002" blue="0.31149619499999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.89427347710000005" green="0.54478385610000002" blue="0.4088895199" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ig9-6A-hOe" firstAttribute="leading" secondItem="uuh-1g-7Cx" secondAttribute="leading" constant="16" id="2V3-SG-kdn"/>
                             <constraint firstItem="kAR-bV-Grq" firstAttribute="top" secondItem="ig9-6A-hOe" secondAttribute="bottom" constant="8" id="34j-Nq-GJ7"/>
                             <constraint firstItem="ig9-6A-hOe" firstAttribute="top" secondItem="uuh-1g-7Cx" secondAttribute="top" id="3MG-NN-gSo"/>
+                            <constraint firstItem="kAR-bV-Grq" firstAttribute="leading" secondItem="Llh-zw-ycu" secondAttribute="trailing" constant="152" id="5n2-e6-1Ay"/>
                             <constraint firstItem="uuh-1g-7Cx" firstAttribute="bottom" secondItem="ig9-6A-hOe" secondAttribute="bottom" constant="92" id="ER7-EW-z23"/>
                             <constraint firstAttribute="bottom" secondItem="Llh-zw-ycu" secondAttribute="bottom" constant="23" id="Lpv-gf-d3b"/>
                             <constraint firstItem="Llh-zw-ycu" firstAttribute="leading" secondItem="uuh-1g-7Cx" secondAttribute="leading" constant="20" id="LxF-tw-nfu"/>
