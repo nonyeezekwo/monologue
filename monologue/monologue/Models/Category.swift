@@ -10,12 +10,12 @@ import Foundation
 import UIKit
 
 enum MonologueCategory: String, CaseIterable {
-    case misc = "thoughts"
-    case memories = "memories"
-    case work = "work"
-    case tasks = "tasks"
-    case vacation = "vacation"
-    case knowledge = "knowledge"
+    case misc = "Thoughts"
+    case memories = "Memories"
+    case work = "Work"
+    case tasks = "Tasks"
+    case vacation = "Vacation"
+    case knowledge = "Knowledge"
 }
 
 class Category {

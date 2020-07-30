@@ -10,12 +10,12 @@ import UIKit
 
 class DetailsViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     
+    // MARK: - OUTLETS
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var categoryTextField: UITextField!
     @IBOutlet var monologueTextView: UITextView!
     
     // MARK: - PROPERTIES
-    
     var monologue: Monologue?
     var monologueController: MonologueController?
     var categories = MonologueCategory.allCases
@@ -36,7 +36,6 @@ class DetailsViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(false)
-//        navigationController?.setNavigationBarHidden(false, animated: false)
         if wasEdited {
             guard let monologueTitle = titleTextField.text,
                 !monologueTitle.isEmpty,
@@ -88,7 +87,6 @@ class DetailsViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     }
     
     // MARK: - ACTIONS
-//     SAVE BUTTON - TODO: CHANGE FROM SAVE TO EDIT WHEN EDITING
     @IBAction func saveNewMonologue(_ sender: Any) {
         guard
             let title = titleTextField.text, !title.isEmpty,
@@ -105,26 +103,13 @@ class DetailsViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     }
     
     @IBAction func pdfButtonTapped(_ sender: Any) {
-        guard
-            let monologue = monologue else { return }
-           guard let title = monologue.monologueTitle,
+        guard let monologue = monologue else { return }
+        guard let title = monologue.monologueTitle,
             let text = monologue.text else { return }
-
+        
         let monologuePDF = MonologuePDF(title: title, text: text)
         let data = monologuePDF.createMonologue()
         let activityVC = UIActivityViewController(activityItems: [data], applicationActivities: [])
         present(activityVC, animated: true, completion: nil)
     }
-    // BACK BUTTON
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }

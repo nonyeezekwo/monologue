@@ -20,7 +20,7 @@ class RecordViewController: UIViewController, UITextViewDelegate, UITextFieldDel
     //    let transparentView = UIView()
     let tableView = UITableView()
     var monologueURL: URL?
-    var selectedButton = UIButton()
+    var selectedButton: String?
     //    var monologueCategory: MonologueCategory?
     var monogolueCategory = [MonologueCategory]()
     var monologueController: MonologueController?
@@ -44,6 +44,7 @@ class RecordViewController: UIViewController, UITextViewDelegate, UITextFieldDel
         
         textField.inputAccessoryView = toolbar
         chooseCategory.inputAccessoryView = toolbar
+        textView.inputAccessoryView = toolbar
     }
     
     @objc func doneButtonAction() {
@@ -53,6 +54,8 @@ class RecordViewController: UIViewController, UITextViewDelegate, UITextFieldDel
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTextFields()
+        createPickerView()
+        dismissPickerView()
         tableView.delegate = self
         tableView.dataSource = self
         textView.delegate = self
@@ -61,9 +64,15 @@ class RecordViewController: UIViewController, UITextViewDelegate, UITextFieldDel
         
         textField.layer.cornerRadius = 10
         textView.layer.cornerRadius = 10
+        
+//        textField.text = textField.text?.uppercased()
+
+        
+        textView.text = "\u{2022}"
 
         updateViews()
     }
+    
     
     //    func addTransparentView(frames: CGRect) {
     //        let window = UIApplication.shared.keyWindow
@@ -122,8 +131,8 @@ class RecordViewController: UIViewController, UITextViewDelegate, UITextFieldDel
             textView.isEditable = true
             
             if textView.text.isEmpty {
-                textView.text = "👂🏾"
-                textView.textAlignment = .center
+                textView.text = ""
+                textView.textAlignment = .natural
                 textView.isEditable = false
                 textView.isSelectable = false
             }
@@ -227,24 +236,14 @@ class RecordViewController: UIViewController, UITextViewDelegate, UITextFieldDel
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alert, animated: true) {
                 if self.textView.text.isEmpty {
-                    self.textView.text = "(Go ahead, I'm listening)"
+                    self.textView.text = "Please speak to me"
                 }
             }
         }
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }
 
+// MARK: - EXTENSION
 extension RecordViewController: SFSpeechRecognizerDelegate {
     func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
         if available {
@@ -267,4 +266,41 @@ extension RecordViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return monogolueCategory.count
     }
+}
+
+// MARK: - PICKER VIEW EXTENSTION
+extension RecordViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return categories.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return categories[row].rawValue // dropdown item
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedButton = categories[row].rawValue // selected item
+    chooseCategory.text = selectedButton
+    }
+    
+    func createPickerView() {
+           let pickerView = UIPickerView()
+           pickerView.delegate = self
+           chooseCategory.inputView = pickerView
+    }
+    func dismissPickerView() {
+       let toolBar = UIToolbar()
+       toolBar.sizeToFit()
+       let button = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.action))
+       toolBar.setItems([button], animated: true)
+       toolBar.isUserInteractionEnabled = true
+       chooseCategory.inputAccessoryView = toolBar
+    }
+    @objc func action() {
+          view.endEditing(true)
+    }
+    
 }
