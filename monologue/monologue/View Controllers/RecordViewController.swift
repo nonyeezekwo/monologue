@@ -33,13 +33,31 @@ class RecordViewController: UIViewController, UITextViewDelegate, UITextFieldDel
     private var request: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-         textField.resignFirstResponder()
-         return true
-     }
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//         textField.resignFirstResponder()
+//         return true
+//     }
+    
+    func setupTextFields() {
+        let toolbar = UIToolbar(frame: CGRect(origin: .zero, size: .init(width: view.frame.size.width, height: 30)))
+        
+        let flexspace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneBtn = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonAction))
+        toolbar.setItems([flexspace, doneBtn], animated: false)
+        toolbar.sizeToFit()
+        
+        textField.inputAccessoryView = toolbar
+        chooseCategory.inputAccessoryView = toolbar
+        
+    }
+    
+    @objc func doneButtonAction() {
+        self.view.endEditing(true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTextFields()
         tableView.delegate = self
         tableView.dataSource = self
         textView.delegate = self
