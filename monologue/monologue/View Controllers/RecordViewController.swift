@@ -28,7 +28,7 @@ class RecordViewController: UIViewController, UITextViewDelegate, UITextFieldDel
     // AUDIO PROPERTIES
     private let audioEngine = AVAudioEngine()
     private let speechRecognizer = SFSpeechRecognizer()
-    private var request: SFSpeechAudioBufferRecognitionRequest?
+    private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     
     func setupTextFields() {
@@ -113,25 +113,21 @@ class RecordViewController: UIViewController, UITextViewDelegate, UITextFieldDel
     }
     
     private func recordAndTranscribe() {
-        request = SFSpeechAudioBufferRecognitionRequest()
+        recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
         
         let monologueURL = createNewRecordingURL()
         let node = audioEngine.inputNode
         let recordingFormat = node.outputFormat(forBus: 0)
         node.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { buffer, _ in
-            self.request?.append(buffer)
+            self.recognitionRequest?.append(buffer)
         }
-        
         audioEngine.prepare()
-        
         do {
             try audioEngine.start()
         } catch {
-            NSLog("Error processing speech: \(error)")
+            NSLog("Error grabbing voice input: \(error)")
         }
-        
-        guard
-            let request = request,
+        guard let request = recognitionRequest,
             let speechRecognizer = speechRecognizer,
             speechRecognizer.isAvailable else { return }
         
@@ -150,8 +146,8 @@ class RecordViewController: UIViewController, UITextViewDelegate, UITextFieldDel
         audioEngine.stop()
         audioEngine.inputNode.removeTap(onBus: 0)
         
-        request?.endAudio()
-        request = nil
+        recognitionRequest?.endAudio()
+        recognitionRequest = nil
         
         recognitionTask?.cancel()
         recognitionTask = nil

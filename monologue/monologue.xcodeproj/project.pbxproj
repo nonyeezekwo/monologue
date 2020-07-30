@@ -28,7 +28,7 @@
 
 /* Begin PBXFileReference section */
 		B4812F7E24D3400400C1D568 /* ExportPDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportPDF.swift; sourceTree = "<group>"; };
-		B4A7A3A124CF59CB0016D31F /* monologue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = monologue.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4A7A3A124CF59CB0016D31F /* Monologue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Monologue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4A7A3A424CF59CB0016D31F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4A7A3A624CF59CB0016D31F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B4A7A3AB24CF59CB0016D31F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -70,7 +70,7 @@
 		B4A7A3A224CF59CB0016D31F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B4A7A3A124CF59CB0016D31F /* monologue.app */,
+				B4A7A3A124CF59CB0016D31F /* Monologue.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -149,7 +149,7 @@
 			);
 			name = monologue;
 			productName = monologue;
-			productReference = B4A7A3A124CF59CB0016D31F /* monologue.app */;
+			productReference = B4A7A3A124CF59CB0016D31F /* Monologue.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -369,7 +369,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Lambda.monologue;
-				PRODUCT_NAME = monologue;
+				PRODUCT_NAME = Monologue;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -388,7 +388,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Lambda.monologue;
-				PRODUCT_NAME = monologue;
+				PRODUCT_NAME = Monologue;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
