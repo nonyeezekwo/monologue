@@ -20,7 +20,6 @@ class MonologueTableViewController: UITableViewController {
     
     var dateFormatter: DateFormatter?
     var monologueCountLabel: UILabel!
-//    weak var delegate: MemoDelegate?
     var fetchedResultsController: NSFetchedResultsController<Monologue>?
     
     // MARK: - View Lifecycle
@@ -90,6 +89,11 @@ class MonologueTableViewController: UITableViewController {
                 let indexPath = tableView.indexPathForSelectedRow {
                 detailVC.monologue = fetchedResultsController!.object(at: indexPath)
                 detailVC.monologueController = monologueController
+            }
+        }
+        if segue.identifier == "AddNewSegue" {
+            if let addNewVC = segue.destination as? RecordViewController {
+                addNewVC.monologueController = self.monologueController
             }
         }
     }
