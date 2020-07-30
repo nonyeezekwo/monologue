@@ -103,6 +103,18 @@ class DetailsViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         monologueController?.updateMonologue(monologue, title: title, text: text, category: category, monologueURL: monologueURL)
         navigationController?.popToRootViewController(animated: true)
     }
+    
+    @IBAction func pdfButtonTapped(_ sender: Any) {
+        guard
+            let monologue = monologue else { return }
+           guard let title = monologue.monologueTitle,
+            let text = monologue.text else { return }
+
+        let monologuePDF = MonologuePDF(title: title, text: text)
+        let data = monologuePDF.createMonologue()
+        let activityVC = UIActivityViewController(activityItems: [data], applicationActivities: [])
+        present(activityVC, animated: true, completion: nil)
+    }
     // BACK BUTTON
     
     /*

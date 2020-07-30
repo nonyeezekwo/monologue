@@ -11,18 +11,10 @@ import UIKit
 class CategoryViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-
-//    var categories = Category.fetchCategories()
     
     var categories = Category.fetchCategories()
-//    var categories = Category.allCases
-    
-    //    var categories = [Category]()
-    //var categories = [Category]()
     var monologueController = MonologueController()
-    
-//    let category: MonologueCategory
-    
+
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "d MMMM yyyy"
@@ -33,32 +25,27 @@ class CategoryViewController: UIViewController {
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
-        
-        // Do any additional setup after loading the view.
     }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Identifier.addRecording {
+        if segue.identifier == "addMonologueSegue" {
             if let destinationVC = segue.destination as? RecordViewController {
                 destinationVC.monologueController = monologueController
                 
             }
-        } else if segue.identifier == Identifier.showMemos {
+        } else if segue.identifier == "TableViewSegue" {
             if let destinationVC = segue.destination as? MonologueTableViewController,
                 let indexPath = collectionView.indexPathsForSelectedItems?.first {
                 destinationVC.category = Category.fetchCategories()[indexPath.row]
                 destinationVC.monologueController = monologueController
                 destinationVC.dateFormatter = dateFormatter
-                //                destinationVC.delegate = self
             }
     
         }
     }
 }
 
-
-#warning ("must complete")
 extension CategoryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categories.count

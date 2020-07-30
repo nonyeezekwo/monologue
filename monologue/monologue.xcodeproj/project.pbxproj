@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B4812F7F24D3400400C1D568 /* ExportPDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4812F7E24D3400400C1D568 /* ExportPDF.swift */; };
 		B4A7A3A524CF59CB0016D31F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A7A3A424CF59CB0016D31F /* AppDelegate.swift */; };
 		B4A7A3A724CF59CB0016D31F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A7A3A624CF59CB0016D31F /* SceneDelegate.swift */; };
 		B4A7A3AC24CF59CB0016D31F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4A7A3AA24CF59CB0016D31F /* Main.storyboard */; };
@@ -22,12 +23,11 @@
 		B4A7A3CE24CF6CCF0016D31F /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A7A3CD24CF6CCF0016D31F /* Category.swift */; };
 		B4A7A3D024CF7D590016D31F /* MonologueTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A7A3CF24CF7D590016D31F /* MonologueTableViewController.swift */; };
 		B4A7A3D224CF7ED40016D31F /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A7A3D124CF7ED40016D31F /* DetailsViewController.swift */; };
-		B4A7A3D424CF80740016D31F /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A7A3D324CF80740016D31F /* Identifiers.swift */; };
-		B4A7A3D624CF81A30016D31F /* MemoDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A7A3D524CF81A30016D31F /* MemoDelegate.swift */; };
 		B4A7A3D824CF832A0016D31F /* MemoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A7A3D724CF832A0016D31F /* MemoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B4812F7E24D3400400C1D568 /* ExportPDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportPDF.swift; sourceTree = "<group>"; };
 		B4A7A3A124CF59CB0016D31F /* monologue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = monologue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4A7A3A424CF59CB0016D31F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4A7A3A624CF59CB0016D31F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,8 +45,6 @@
 		B4A7A3CD24CF6CCF0016D31F /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		B4A7A3CF24CF7D590016D31F /* MonologueTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonologueTableViewController.swift; sourceTree = "<group>"; };
 		B4A7A3D124CF7ED40016D31F /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
-		B4A7A3D324CF80740016D31F /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
-		B4A7A3D524CF81A30016D31F /* MemoDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoDelegate.swift; sourceTree = "<group>"; };
 		B4A7A3D724CF832A0016D31F /* MemoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,11 +92,10 @@
 			isa = PBXGroup;
 			children = (
 				B4A7A3CF24CF7D590016D31F /* MonologueTableViewController.swift */,
-				B4A7A3D324CF80740016D31F /* Identifiers.swift */,
+				B4812F7E24D3400400C1D568 /* ExportPDF.swift */,
 				B4A7A3D124CF7ED40016D31F /* DetailsViewController.swift */,
 				B4A7A3BC24CF60390016D31F /* CategoryViewController.swift */,
 				B4A7A3B824CF5C520016D31F /* RecordViewController.swift */,
-				B4A7A3D524CF81A30016D31F /* MemoDelegate.swift */,
 				B4A7A3A424CF59CB0016D31F /* AppDelegate.swift */,
 				B4A7A3A624CF59CB0016D31F /* SceneDelegate.swift */,
 			);
@@ -207,12 +204,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4A7A3C824CF645E0016D31F /* MonologueController.swift in Sources */,
-				B4A7A3D624CF81A30016D31F /* MemoDelegate.swift in Sources */,
 				B4A7A3C224CF63450016D31F /* CoreDataStack.swift in Sources */,
 				B4A7A3D824CF832A0016D31F /* MemoTableViewCell.swift in Sources */,
 				B4A7A3BD24CF60390016D31F /* CategoryViewController.swift in Sources */,
 				B4A7A3B924CF5C520016D31F /* RecordViewController.swift in Sources */,
-				B4A7A3D424CF80740016D31F /* Identifiers.swift in Sources */,
+				B4812F7F24D3400400C1D568 /* ExportPDF.swift in Sources */,
 				B4A7A3C424CF63B10016D31F /* Monologue+Convenience.swift in Sources */,
 				B4A7A3CC24CF69150016D31F /* CategoryCollectionViewCell.swift in Sources */,
 				B4A7A3A524CF59CB0016D31F /* AppDelegate.swift in Sources */,

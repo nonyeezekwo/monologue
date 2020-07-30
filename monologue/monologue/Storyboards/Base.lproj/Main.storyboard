@@ -237,24 +237,37 @@
                                     </textView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAR-bV-Grq">
-                                <rect key="frame" x="152" y="778" width="111" height="96"/>
-                                <state key="normal" title="Save" image="3"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAR-bV-Grq">
+                                <rect key="frame" x="283" y="778" width="111" height="96"/>
+                                <state key="normal" title="Save" image="SAVE"/>
                                 <connections>
                                     <action selector="saveNewMonologue:" destination="bXW-va-ztn" eventType="touchUpInside" id="vzi-tr-bK1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Llh-zw-ycu">
+                                <rect key="frame" x="20" y="777" width="111" height="96"/>
+                                <state key="normal" image="PDF"/>
+                                <connections>
+                                    <action selector="pdfButtonTapped:" destination="bXW-va-ztn" eventType="touchUpInside" id="KrG-ax-DgT"/>
+                                    <action selector="saveNewMonologue:" destination="bXW-va-ztn" eventType="touchUpInside" id="mBF-Pd-XcP"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.69166402279999994" green="0.41730236240000002" blue="0.31149619499999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ig9-6A-hOe" firstAttribute="leading" secondItem="uuh-1g-7Cx" secondAttribute="leading" constant="16" id="2V3-SG-kdn"/>
+                            <constraint firstItem="kAR-bV-Grq" firstAttribute="top" secondItem="ig9-6A-hOe" secondAttribute="bottom" constant="8" id="34j-Nq-GJ7"/>
                             <constraint firstItem="ig9-6A-hOe" firstAttribute="top" secondItem="uuh-1g-7Cx" secondAttribute="top" id="3MG-NN-gSo"/>
-                            <constraint firstItem="kAR-bV-Grq" firstAttribute="bottom" secondItem="uuh-1g-7Cx" secondAttribute="bottom" id="A5a-rI-yfg"/>
                             <constraint firstItem="uuh-1g-7Cx" firstAttribute="bottom" secondItem="ig9-6A-hOe" secondAttribute="bottom" constant="92" id="ER7-EW-z23"/>
+                            <constraint firstAttribute="bottom" secondItem="Llh-zw-ycu" secondAttribute="bottom" constant="23" id="Lpv-gf-d3b"/>
+                            <constraint firstItem="Llh-zw-ycu" firstAttribute="leading" secondItem="uuh-1g-7Cx" secondAttribute="leading" constant="20" id="LxF-tw-nfu"/>
+                            <constraint firstAttribute="bottom" secondItem="kAR-bV-Grq" secondAttribute="bottom" constant="22" id="MP7-KN-R4J"/>
                             <constraint firstItem="kAR-bV-Grq" firstAttribute="top" secondItem="ig9-6A-hOe" secondAttribute="bottom" constant="8" id="N5x-5P-F9z"/>
+                            <constraint firstItem="Llh-zw-ycu" firstAttribute="width" secondItem="kAR-bV-Grq" secondAttribute="height" multiplier="37:32" id="TWQ-tq-JSC"/>
                             <constraint firstItem="uuh-1g-7Cx" firstAttribute="trailing" secondItem="ig9-6A-hOe" secondAttribute="trailing" constant="16" id="UJh-lV-lhC"/>
-                            <constraint firstItem="kAR-bV-Grq" firstAttribute="leading" secondItem="uuh-1g-7Cx" secondAttribute="leading" constant="152" id="YDO-pj-lML"/>
-                            <constraint firstItem="uuh-1g-7Cx" firstAttribute="trailing" secondItem="kAR-bV-Grq" secondAttribute="trailing" constant="151" id="eZD-Or-UJz"/>
+                            <constraint firstItem="uuh-1g-7Cx" firstAttribute="trailing" secondItem="kAR-bV-Grq" secondAttribute="trailing" constant="20" id="lKK-Oj-PQl"/>
+                            <constraint firstItem="Llh-zw-ycu" firstAttribute="width" secondItem="kAR-bV-Grq" secondAttribute="width" id="mbu-Cl-LDP"/>
+                            <constraint firstItem="Llh-zw-ycu" firstAttribute="top" secondItem="ig9-6A-hOe" secondAttribute="bottom" constant="7" id="vcQ-dt-XcH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uuh-1g-7Cx"/>
                     </view>
@@ -296,7 +309,8 @@
     <resources>
         <image name="1" width="2160" height="2160"/>
         <image name="2" width="2160" height="2160"/>
-        <image name="3" width="2160" height="2160"/>
+        <image name="PDF" width="1080" height="1080"/>
+        <image name="SAVE" width="1080" height="1080"/>
         <image name="memories" width="338" height="600"/>
         <image name="mic" catalog="system" width="108" height="128"/>
     </resources>
