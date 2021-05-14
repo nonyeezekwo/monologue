@@ -39,12 +39,15 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     private func setUpSubviews() {
         layer.cornerRadius = 10
         clipsToBounds = true
+    
         categoryImage = UIImageView()
         categoryImage.contentMode = .scaleAspectFill
+      
         categoryImage.translatesAutoresizingMaskIntoConstraints = false
         addSubview(categoryImage)
-        
+    
         NSLayoutConstraint.activate([
+
             categoryImage.topAnchor.constraint(equalTo: topAnchor),
             categoryImage.leadingAnchor.constraint(equalTo: leadingAnchor),
             categoryImage.bottomAnchor.constraint(equalTo: bottomAnchor),

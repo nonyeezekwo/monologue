@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B47940372522075D008D5D6A /* MonologueUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47940362522075D008D5D6A /* MonologueUITest.swift */; };
 		B4812F7F24D3400400C1D568 /* ExportPDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4812F7E24D3400400C1D568 /* ExportPDF.swift */; };
 		B4A7A3A524CF59CB0016D31F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A7A3A424CF59CB0016D31F /* AppDelegate.swift */; };
 		B4A7A3A724CF59CB0016D31F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A7A3A624CF59CB0016D31F /* SceneDelegate.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B47940362522075D008D5D6A /* MonologueUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonologueUITest.swift; sourceTree = "<group>"; };
 		B4812F7E24D3400400C1D568 /* ExportPDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportPDF.swift; sourceTree = "<group>"; };
 		B4A7A3A124CF59CB0016D31F /* Monologue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Monologue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4A7A3A424CF59CB0016D31F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				B4A7A3B824CF5C520016D31F /* RecordViewController.swift */,
 				B4A7A3A424CF59CB0016D31F /* AppDelegate.swift */,
 				B4A7A3A624CF59CB0016D31F /* SceneDelegate.swift */,
+				B47940362522075D008D5D6A /* MonologueUITest.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				B4A7A3C224CF63450016D31F /* CoreDataStack.swift in Sources */,
 				B4A7A3D824CF832A0016D31F /* MemoTableViewCell.swift in Sources */,
 				B4A7A3BD24CF60390016D31F /* CategoryViewController.swift in Sources */,
+				B47940372522075D008D5D6A /* MonologueUITest.swift in Sources */,
 				B4A7A3B924CF5C520016D31F /* RecordViewController.swift in Sources */,
 				B4812F7F24D3400400C1D568 /* ExportPDF.swift in Sources */,
 				B4A7A3C424CF63B10016D31F /* Monologue+Convenience.swift in Sources */,

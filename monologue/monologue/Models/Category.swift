@@ -20,7 +20,7 @@ enum MonologueCategory: String, CaseIterable {
 
 class Category {
     
-    var monologueCategory: MonologueCategory?
+    var monologueCategory: MonologueCategory? // this is a reference type
     var featuredImage: UIImage
     
     init(featuredImage: UIImage, monologueCategory: MonologueCategory) {

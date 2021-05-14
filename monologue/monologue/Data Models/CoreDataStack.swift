@@ -14,7 +14,7 @@ class CoreDataStack {
     private init() {}
     
     static let shared = CoreDataStack()
-    
+    //by making it a lazy var that means it wont run until we need it
     lazy var container: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Monologue")
         container.loadPersistentStores(completionHandler: { (_, error) in

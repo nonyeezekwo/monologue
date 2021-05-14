@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="f31-1t-byu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="f31-1t-byu">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,7 +13,7 @@
         <!--Category View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="CategoryViewController" customModule="monologue" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CategoryViewController" customModule="Monologue" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,7 +28,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CategoryCell" id="Ms3-eU-Gif" customClass="CategoryCollectionViewCell" customModule="monologue" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CategoryCell" id="Ms3-eU-Gif" customClass="CategoryCollectionViewCell" customModule="Monologue" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="49.5" width="338" height="600"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="mFN-6m-0Kn">
@@ -51,6 +53,7 @@
                                 </cells>
                             </collectionView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.89427347710000005" green="0.54478385610000002" blue="0.4088895199" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rf3-EZ-Lmy" secondAttribute="bottom" constant="64" id="2YG-jd-zSh"/>
@@ -58,7 +61,6 @@
                             <constraint firstItem="rf3-EZ-Lmy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="11" id="9iO-nz-dbZ"/>
                             <constraint firstItem="rf3-EZ-Lmy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="n1P-ze-UTv"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="xnt-UB-1Im">
                         <barButtonItem key="rightBarButtonItem" image="mic" catalog="system" id="bgI-bF-0Ve">
@@ -78,7 +80,7 @@
         <!--Monologue Table View Controller-->
         <scene sceneID="ChN-3T-cY9">
             <objects>
-                <tableViewController storyboardIdentifier="TableView" id="Cec-oD-pqd" customClass="MonologueTableViewController" customModule="monologue" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="TableView" id="Cec-oD-pqd" customClass="MonologueTableViewController" customModule="Monologue" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="KL8-my-h4s">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -86,7 +88,7 @@
                         <color key="separatorColor" red="0.60878013959999999" green="0.56036011900000005" blue="0.58722692499999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MemoCell" textLabel="TZ4-gq-iZo" detailTextLabel="6r5-S2-FY7" style="IBUITableViewCellStyleSubtitle" id="FBO-Fr-PcS" customClass="MemoTableViewCell" customModule="monologue" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MemoCell" textLabel="TZ4-gq-iZo" detailTextLabel="6r5-S2-FY7" style="IBUITableViewCellStyleSubtitle" id="FBO-Fr-PcS" customClass="MemoTableViewCell" customModule="Monologue" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FBO-Fr-PcS" id="7m3-V7-fGh">
@@ -94,7 +96,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TZ4-gq-iZo">
-                                            <rect key="frame" x="20" y="10" width="33.5" height="20.5"/>
+                                            <rect key="frame" x="20" y="10" width="33" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -136,7 +138,7 @@
         <!--Record View Controller-->
         <scene sceneID="mSx-ZU-dyi">
             <objects>
-                <viewController storyboardIdentifier="RecordViewController" id="KY5-cd-ga1" customClass="RecordViewController" customModule="monologue" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecordViewController" id="KY5-cd-ga1" customClass="RecordViewController" customModule="Monologue" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YJn-uu-0Wl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -159,7 +161,7 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RhG-Ck-f1x">
                                         <rect key="frame" x="0.0" y="84" width="382" height="528"/>
                                         <color key="backgroundColor" red="1" green="0.82550652769999999" blue="0.63082406189999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -176,6 +178,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="eqL-ek-qyY"/>
                         <color key="backgroundColor" red="0.89427347710000005" green="0.54478385610000002" blue="0.4088895199" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="F1s-ri-PJL" firstAttribute="top" secondItem="dhC-8G-6F0" secondAttribute="bottom" constant="8" id="Bam-Bs-Gup"/>
@@ -187,7 +190,6 @@
                             <constraint firstItem="eqL-ek-qyY" firstAttribute="trailing" secondItem="F1s-ri-PJL" secondAttribute="trailing" constant="158" id="nM3-qZ-b2S"/>
                             <constraint firstItem="dhC-8G-6F0" firstAttribute="top" secondItem="eqL-ek-qyY" secondAttribute="top" id="ubS-ge-Aq1"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="eqL-ek-qyY"/>
                     </view>
                     <navigationItem key="navigationItem" id="yE4-yc-fX6">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="1xR-cn-u4H">
@@ -210,7 +212,7 @@
         <!--Details View Controller-->
         <scene sceneID="urv-lt-bpF">
             <objects>
-                <viewController storyboardIdentifier="DetailsViewController" id="bXW-va-ztn" customClass="DetailsViewController" customModule="monologue" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailsViewController" id="bXW-va-ztn" customClass="DetailsViewController" customModule="Monologue" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iBf-bK-RVI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -233,7 +235,7 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uCe-k9-lHW">
                                         <rect key="frame" x="0.0" y="84" width="382" height="546"/>
                                         <color key="backgroundColor" red="1" green="0.82550652769999999" blue="0.63082406189999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -255,6 +257,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="uuh-1g-7Cx"/>
                         <color key="backgroundColor" red="0.89427347710000005" green="0.54478385610000002" blue="0.4088895199" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ig9-6A-hOe" firstAttribute="leading" secondItem="uuh-1g-7Cx" secondAttribute="leading" constant="16" id="2V3-SG-kdn"/>
@@ -272,7 +275,6 @@
                             <constraint firstItem="Llh-zw-ycu" firstAttribute="width" secondItem="kAR-bV-Grq" secondAttribute="width" id="mbu-Cl-LDP"/>
                             <constraint firstItem="Llh-zw-ycu" firstAttribute="top" secondItem="ig9-6A-hOe" secondAttribute="bottom" constant="7" id="vcQ-dt-XcH"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="uuh-1g-7Cx"/>
                     </view>
                     <navigationItem key="navigationItem" id="3m9-Jf-tG0">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="jlM-wa-6f1"/>
@@ -305,9 +307,46 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="115.84821428571428"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="cqa-L6-LDs">
+            <objects>
+                <viewController id="3V3-Mt-jbr" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="13m-ij-0rc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="tJD-R7-rn7">
+                                <rect key="frame" x="20" y="201" width="374" height="104"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7PW-2G-1EW">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1iq-cm-BLe">
+                                        <rect key="frame" x="0.0" y="70" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="NK7-41-ORa"/>
+                        <color key="backgroundColor" red="0.89427347710000005" green="0.54478385610000002" blue="0.4088895199" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="tJD-R7-rn7" firstAttribute="leading" secondItem="NK7-41-ORa" secondAttribute="leading" constant="20" id="CXc-yW-azm"/>
+                            <constraint firstItem="tJD-R7-rn7" firstAttribute="top" secondItem="NK7-41-ORa" secondAttribute="top" constant="157" id="EOx-tO-Uew"/>
+                            <constraint firstItem="NK7-41-ORa" firstAttribute="trailing" secondItem="tJD-R7-rn7" secondAttribute="trailing" constant="20" id="Kgi-46-TGa"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CxX-Sy-KHn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="921.73913043478262" y="-867.1875"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="t3y-2N-A3r"/>
+        <segue reference="xPq-9c-ELk"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="1" width="2160" height="2160"/>
@@ -316,5 +355,8 @@
         <image name="SAVE" width="1080" height="1080"/>
         <image name="memories" width="338" height="600"/>
         <image name="mic" catalog="system" width="108" height="128"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

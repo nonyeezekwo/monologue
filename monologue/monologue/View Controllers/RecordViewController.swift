@@ -111,7 +111,6 @@ class RecordViewController: UIViewController, UITextViewDelegate, UITextFieldDel
             }
         }
     }
-    
     private func recordAndTranscribe() {
         recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
         
@@ -130,7 +129,7 @@ class RecordViewController: UIViewController, UITextViewDelegate, UITextFieldDel
         guard let request = recognitionRequest,
             let speechRecognizer = speechRecognizer,
             speechRecognizer.isAvailable else { return }
-        
+
         recognitionTask = speechRecognizer.recognitionTask(with: request, resultHandler: { result, error in
             if let result = result {
                 let monoText = result.bestTranscription.formattedString
@@ -220,7 +219,7 @@ extension RecordViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-// MARK: - PICKER VIEW EXTENSTION
+// MARK: - PICKER VIEW EXTENTSION
 extension RecordViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

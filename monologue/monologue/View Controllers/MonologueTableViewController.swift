@@ -15,7 +15,7 @@ class MonologueTableViewController: UITableViewController {
     var dateFormatter: DateFormatter?
     var monologueCountLabel: UILabel!
     var fetchedResultsController: NSFetchedResultsController<Monologue>?
-    var category: Category? {
+    var category: Category? { 
         didSet {
             setUpFetchResultsController()
         }
@@ -148,7 +148,6 @@ class MonologueTableViewController: UITableViewController {
         
     }
 }
-
 // MARK: - EXTENSION FRC
 extension MonologueTableViewController: NSFetchedResultsControllerDelegate {
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
